@@ -5,20 +5,12 @@ var controller = require('../controllers/controller.js');
 
 
 // router.post('/api',controller.createCafe);
-router.get('/api', function(req, res){
+router.get('/user', function(req, res){
     res.send({kjj:'HI'});
     // res.send(JSON.stringify(req.body));
 });
 
-router.post('/api', function(req, res){
-    var etc = req.body;
-    console.log(etc);
-
-    res.send(etc);
-
-    console.log('POSTED');
-    // res.send(JSON.stringify(req.body));
-});
+router.post('/user', controller.createUser);
 
 // router.get('/api',controller.findAllCafes);
 // router.get('/api/id/:id',controller.findOneCafe);

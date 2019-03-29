@@ -15,7 +15,7 @@ const headers = {
 
 
 export const createUser = (newUser) =>
-    fetch(`${api}/api`, {
+    fetch(`${api}/user`, {
         method: 'post',
         // mode: "cors", // or without this line
         // redirect: 'follow',
@@ -28,7 +28,7 @@ export const createUser = (newUser) =>
 
 
 export const getUser = () =>
-    fetch(`${api}/api`, { headers })
+    fetch(`${api}/user`, { headers })
         .then(res => res.json())
 
 

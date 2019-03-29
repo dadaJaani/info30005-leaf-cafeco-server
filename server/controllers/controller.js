@@ -7,7 +7,26 @@ var Reward     = mongoose.model('rewards' );
 
 
 var createUser = function(req, res){
-    // var user = new User()
+    var newUser = new User({
+        "username": req.body.username,
+        "password": req.body.password,
+        "email":    req.body.email,
+        "fname":    req.body.fname,
+        "lname":    req.body.lname,
+        "points":   0,
+        "photo":    '',
+    });
+
+    newUser.save(function (err, createdCafe)  {
+        if (!err)
+            res.send(createdCafe);
+        else
+            res.send(err);
+            // res.sendStatus(400);
+
+    });
+    console.log(newUser);
+
 };
 
 var editUser = function(req, res){
@@ -18,6 +37,7 @@ var deleteUser = function(req, res){
 
 };
 
+module.exports.createUser = createUser;
 
 
 // var Cafe = mongoose.model('cafes');
