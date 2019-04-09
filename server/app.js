@@ -20,6 +20,6 @@ var routes = require('./routes/routes.js');
 app.use('/',routes);
 
 // Start the server
-app.listen(3001,function(req,res){
+app.listen(process.env.PORT || 3001,function(req,res){
     console.log('Cafeco server listening on port 3001');
 });
