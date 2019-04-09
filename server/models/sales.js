@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var saleSchema = mongoose.Schema(
     {
-        "saleId":String,
+        "id":{type: String, lowercase: true, trim: true, unique: true },
         "restaurantId":String,
         "date":Date,
         "price":Number,

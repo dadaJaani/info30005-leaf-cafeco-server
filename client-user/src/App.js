@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Form from './components/Form'
+import LogIn from './components/LogIn'
 
 class App extends Component {
 
@@ -11,7 +12,6 @@ class App extends Component {
 
     }
   }
-
   
 
   render() {
@@ -19,6 +19,7 @@ class App extends Component {
     return (
       <div >
           <Form/>
+          {/*<LogIn/>>*/}
       </div>
     );
   }

@@ -1,6 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+
 
 import * as API from '../utils/api'
+
+import '../styles/main.css'
 
 class Form extends Component {
 
@@ -34,18 +40,25 @@ class Form extends Component {
         event.preventDefault();
         // console.log(this.state);
         // alert('A name was submitted: ' + this.state);
-        API.createUser(this.state).then(res => console.log('post', res))
-        API.getUser(this.state).then(res => console.log('get', res))
+
+        // API.createUser(this.state).then(res => console.log('post', res))
+
+        // API.editUser('asd' , this.state ).then(res => console.log('put', res))
+
+        // API.getUser(this.state).then(res => console.log('get', res))
+        // API.deleteUser(this.state.username).then(res => console.log(res))
+
+
     }
 
 
     render(){
         return(
             <div>
-                <label>
+                <div className={'input-label'}>
                     User Name:
-                    <input type="text" value={this.state.username} ref="usernameIN" onChange={this.handleChange} />
-                </label>
+                </div>
+                <input placeholder={'username'} type="text" value={this.state.username} ref="usernameIN" onChange={this.handleChange}/>
                 <label>
                     First Name:
                     <input type="text" value={this.state.fname} ref="fnameIN" onChange={this.handleChange} />
@@ -63,7 +76,28 @@ class Form extends Component {
                     <input type="text" value={this.state.password} ref="passwordIN" onChange={this.handleChange} />
                 </label>
 
+
+
                 <button onClick={this.handleSubmit}>Submit</button>
+
+                <Button variant="contained" color="primary" >
+                    Hello World
+                </Button>
+
+                <List>
+                    <ListItem>
+                        asdaskdh
+                    </ListItem>
+
+                    <ListItem>
+                        asdaskdh
+                    </ListItem>
+
+                    <ListItem>
+                        asdasasdkdh
+                    </ListItem>
+                </List>
+
             </div>
         )
     }

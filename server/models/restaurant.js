@@ -2,9 +2,9 @@ var mongoose = require('mongoose');
 
 var restaurantSchema = mongoose.Schema(
     {
-        "username":{ type: String, lowercase: true, trim: true },
+        "id":{ type: String, lowercase: true, trim: true, unique: true },
         "password":String,
-        "email":String,
+        "email":{ type: String, lowercase: true, trim: true, unique: true },
         "name":String,
         "address":Map,
         "description":String,

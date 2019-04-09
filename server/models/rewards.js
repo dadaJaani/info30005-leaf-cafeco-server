@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var rewardSchema = mongoose.Schema(
     {
-        "rewardId":String,
+        "id":{type: String, lowercase: true, trim: true, unique: true },
         "userId":String,
         "price":String,
         "date":String,

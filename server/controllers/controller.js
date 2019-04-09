@@ -6,9 +6,14 @@ var Sale       = mongoose.model('sales' );
 var Reward     = mongoose.model('rewards' );
 
 
+// =============================================
+// USER FUNCTIONS
+// =============================================
+
+// FUNCTION TO CREATE USER
 var createUser = function(req, res){
     var newUser = new User({
-        "username": req.body.username,
+        "id":      req.body.username,
         "password": req.body.password,
         "email":    req.body.email,
         "fname":    req.body.fname,
@@ -18,26 +23,99 @@ var createUser = function(req, res){
     });
 
     newUser.save(function (err, createdCafe)  {
-        if (!err)
+        if (!err){
             res.send(createdCafe);
-        else
+        }
+        else {
             res.send(err);
-            // res.sendStatus(400);
-
+        }
     });
-    console.log(newUser);
-
 };
 
+
+// FUNCTION TO EDIT USER
 var editUser = function(req, res){
+    var userID = req.params.id;
 
+    var newUser = {
+        "id":       req.body.username,
+        "password": req.body.password,
+        "email":    req.body.email,
+        "fname":    req.body.fname,
+        "lname":    req.body.lname,
+        "points":   0,
+        "photo":    '',
+    };
+
+    User.updateOne({ id: userID }, newUser, function(err, updatedUser) {
+        if (!err){
+            res.send(updatedUser);
+        }
+        else {
+            res.send(err);
+        }
+    });
 };
 
+// FUNCTION TO DELETE USER
 var deleteUser = function(req, res){
+    var userID = req.params.id;
+
+    User.deleteOne({ id: userID } ,function(err){
+        if (err)
+            res.send(err)
+    });
 
 };
+
+// FUNCTION TO GET CHECK IF USER ID EXISTS
+var validateUserID = function (req, res){
+    var userID = req.params.id;
+
+    User.findOne({ id: userID }, function(err, theUser){
+        if (theUser)
+            res.send(theUser)
+        else
+            res.send({ username: ""})
+    });
+};
+
+// FUNCTION TO CHECK PASSWORD WHEN USER SIGNS IN
+
+// FUNCTION TO GET USER
+
+
+
+
+// =============================================
+// SALES FUNCTIONS
+// =============================================
+
+
+
+// =============================================
+// REWARDS FUNCTIONS
+// =============================================
+
+// =============================================
+// ALEKS WILL DO
+// =============================================
+
+// FUNCTION TO CREATE RESTAURANT
+
+// FUNCTION TO EDIT RESTAURANT
+
+// FUNCTION TO DELETE RESTAURANT
+
+// FUNCTION TO GET CHECK IF RESTAURANT ID EXISTS
+
+// FUNCTION TO CHECK PASSWORD WHEN RESTAURANT SIGNS IN
+
+// FUNCTION TO GET RESTAURANT DATA
 
 module.exports.createUser = createUser;
+module.exports.deleteUser = deleteUser;
+module.exports.editUser = editUser;
 
 
 // var Cafe = mongoose.model('cafes');

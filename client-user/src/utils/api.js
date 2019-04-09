@@ -13,7 +13,7 @@ const headers = {
     // 'Access-Control-Allow-Origin': 'http://localhost:3001'
 }
 
-
+// FUNCTION TO CREATE USER
 export const createUser = (newUser) =>
     fetch(`${api}/user`, {
         method: 'post',
@@ -27,10 +27,32 @@ export const createUser = (newUser) =>
     }).then(res => res.json())
 
 
-export const getUser = () =>
-    fetch(`${api}/user`, { headers })
+// FUNCTION TO EDIT USER
+export const editUser = (userID, edited) =>
+    fetch(`${api}/user/${userID}`, {
+        method: 'put',
+        headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify( edited )
+    }).then(res => res.json())
+
+
+// FUNCTION TO GET USER
+export const checkUserID = (id) =>
+    fetch(`${api}/user/checkID/${id}`, { headers })
         .then(res => res.json())
 
+// FUNCTION TO DELETE USER
+export const deleteUser = (userID) =>
+    fetch(`${api}/user/${userID}`, {
+        method: 'delete',
+        headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        },
+    }).then( res => console.log(res))
 
 // export const getCategories = () =>
 //     fetch(`${api}/categories`, { headers })
