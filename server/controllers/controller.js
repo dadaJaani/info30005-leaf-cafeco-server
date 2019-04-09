@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
 
+var restaurant = require('./restaurant_controller.js')
+
 var User       = mongoose.model('users');
-var Restaurant = mongoose.model('restaurants');
+// var Restaurant = mongoose.model('restaurants');
 var Sale       = mongoose.model('sales' );
 var Reward     = mongoose.model('rewards' );
 
@@ -116,6 +118,9 @@ var validateUserID = function (req, res){
 module.exports.createUser = createUser;
 module.exports.deleteUser = deleteUser;
 module.exports.editUser = editUser;
+
+module.exports.findAllRestaurants = restaurant.findAllRestaurants;
+
 
 
 // var Cafe = mongoose.model('cafes');

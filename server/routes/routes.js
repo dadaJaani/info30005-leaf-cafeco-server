@@ -12,6 +12,8 @@ router.get('/', function (req, res) {
 router.get('/user/checkID/:id', );
 
 router.post('/user', controller.createUser);
+router.get('/restaurants',controller.findAllRestaurants);
+
 
 router.put('/user/:id', controller.editUser);
 
