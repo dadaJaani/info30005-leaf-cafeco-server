@@ -21,6 +21,11 @@ router.get('/findAllRestaurants',controller.findAllRestaurants);
 router.get('/searchRestaurant/:id',controller.searchRestaurant);
 router.delete('/restaurant/:id',controller.deleteRestaurant);
 
+router.post('/reward',controller.createReward);
+router.put('/reward/:id', controller.editReward);
+router.get('/findAllRewards',controller.findAllRewards);
+router.get('/searchReward/:id',controller.searchReward);
+router.delete('/reward/:id',controller.deleteReward);
 
 
 

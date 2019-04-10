@@ -1,11 +1,12 @@
 var mongoose = require('mongoose');
 
-var restaurant = require('./restaurant_controller.js')
+var restaurant = require('./restaurant_controller.js');
+var reward = require('./reward_controller.js');
 
 var User       = mongoose.model('users');
 // var Restaurant = mongoose.model('restaurants');
 var Sale       = mongoose.model('sales' );
-var Reward     = mongoose.model('rewards' );
+//var Reward     = mongoose.model('rewards' );
 
 
 // =============================================
@@ -125,6 +126,11 @@ module.exports.findAllRestaurants = restaurant.findAllRestaurants;
 module.exports.searchRestaurant = restaurant.searchRestaurant;
 module.exports.deleteRestaurant = restaurant.deleteRestaurant;
 
+module.exports.createReward = reward.createReward;
+module.exports.editReward = reward.editReward;
+module.exports.findAllRewards = reward.findAllRewards;
+module.exports.searchReward = reward.searchReward;
+module.exports.deleteReward = reward.deleteReward;
 
 
 // var Cafe = mongoose.model('cafes');
