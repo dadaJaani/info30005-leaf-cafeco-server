@@ -27,7 +27,11 @@ router.get('/findAllRewards',controller.findAllRewards);
 router.get('/searchReward/:id',controller.searchReward);
 router.delete('/reward/:id',controller.deleteReward);
 
-
+router.post('/sale',controller.createSale);
+router.put('/sale/:id', controller.editSale);
+router.get('/findAllSales',controller.findAllSales);
+router.get('/searchSale/:id',controller.searchSale);
+router.delete('/sale/:id',controller.deleteSale);
 
 
 
