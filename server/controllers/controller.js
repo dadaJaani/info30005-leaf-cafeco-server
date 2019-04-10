@@ -119,7 +119,11 @@ module.exports.createUser = createUser;
 module.exports.deleteUser = deleteUser;
 module.exports.editUser = editUser;
 
+module.exports.createRestaurant = restaurant.createRestaurant;
+module.exports.editRestaurant = restaurant.editRestaurant;
 module.exports.findAllRestaurants = restaurant.findAllRestaurants;
+module.exports.searchRestaurant = restaurant.searchRestaurant;
+module.exports.deleteRestaurant = restaurant.deleteRestaurant;
 
 
 

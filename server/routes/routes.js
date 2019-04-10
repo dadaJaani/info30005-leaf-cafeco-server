@@ -12,12 +12,17 @@ router.get('/', function (req, res) {
 router.get('/user/checkID/:id', );
 
 router.post('/user', controller.createUser);
-router.get('/restaurants',controller.findAllRestaurants);
-
-
 router.put('/user/:id', controller.editUser);
-
 router.delete('/user/:id', controller.deleteUser);
+
+router.post('/restaurant',controller.createRestaurant);
+router.put('/restaurant/:id',controller.editRestaurant);
+router.get('/findAllRestaurants',controller.findAllRestaurants);
+router.get('/searchRestaurant/:id',controller.searchRestaurant);
+router.delete('/restaurant/:id',controller.deleteRestaurant);
+
+
+
 
 
 
