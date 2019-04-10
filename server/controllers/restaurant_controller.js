@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Restaurants = mongoose.model('restaurants');
 
 var createRestaurant = function(req,res){
-    var newRestaurant = assembleRestaurant(req);
+    var newRestaurant = Restaurants(assembleRestaurant(req));
 
     // console.log(newRestaurant);
 
@@ -16,43 +16,7 @@ var createRestaurant = function(req,res){
     });
 };
 
-var assembleRestaurant = function(req)
-{
-    var restaurant = new Restaurants({
-        "id":req.body.id,
-        "password":req.body.password,
-        "email":req.body.email,
-        "name":req.body.name,
-        "address":req.body.address,
-        "description":req.body.description,
-        "foodReviews":req.body.foodReviews,
-        "sustainabilityReviews":req.body.sustainabilityReviews,
-        "averageFoodRating":req.body.averageFoodRating,
-        "averageSustainabilityRating":req.body.averageSustainabilityRating,
-        "typeOfRewards": req.body.typeOfRewards,
-        "photos":req.body.photos,
-    });
-
-    return restaurant;
-}
-
-var editRestaurant = function(req,res){
-    var restaurantId = req.params.id;
-    var restaurantUpdate = assembleRestaurantUpdate(req);
-
-    // console.log(restaurantId);
-
-    Restaurants.updateOne({id:restaurantId}, restaurantUpdate, function(err,updatedRestaurant){
-        if(!err){
-            res.send(updatedRestaurant);
-        }else{
-            console.log(err);
-            res.sendStatus(400);
-        }
-    });
-};
-
-var assembleRestaurantUpdate = function (req) {
+var assembleRestaurant = function (req) {
     var restaurant = {
         "id":req.body.id,
         "password":req.body.password,
@@ -69,6 +33,22 @@ var assembleRestaurantUpdate = function (req) {
     };
 
     return restaurant;
+};
+
+var editRestaurant = function(req,res){
+    var restaurantId = req.params.id;
+    var restaurantUpdate = assembleRestaurant(req);
+
+    // console.log(restaurantId);
+
+    Restaurants.updateOne({id:restaurantId}, restaurantUpdate, function(err,updatedRestaurant){
+        if(!err){
+            res.send(updatedRestaurant);
+        }else{
+            console.log(err);
+            res.sendStatus(400);
+        }
+    });
 };
 
 var findAllRestaurants = function(req,res){
