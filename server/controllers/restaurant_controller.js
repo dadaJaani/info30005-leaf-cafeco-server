@@ -6,7 +6,7 @@ var Restaurants = mongoose.model('restaurants');
 // HELPER FUNCTION TO BE USED IN FUNCTIONS
 var assembleRestaurant = function (req) {
     var restaurant = {
-        "id":req.body.id,
+        "id":req.body.username, // WE GETTING USERNAME BECAUSE FRONTEND SENDS USERNA
         "password":req.body.password,
         "email":req.body.email,
         "name":req.body.name,

@@ -11,7 +11,7 @@ var Users = mongoose.model('users');
 // Helper function to be used in other functions
 var assembleUser = function (req) {
     var user = {
-        "id":req.body.id,
+        "id":req.body.username, // WE GETTING USERNAME BECAUSE FRONTEND SENDS USERNAME
         "password":req.body.password,
         "email":req.body.email,
         "fname":req.body.fname,

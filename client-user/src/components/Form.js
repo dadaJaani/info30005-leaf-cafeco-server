@@ -41,7 +41,7 @@ class Form extends Component {
         // console.log(this.state);
         // alert('A name was submitted: ' + this.state);
 
-        // API.createUser(this.state).then(res => console.log('post', res))
+        API.createUser(this.state).then(res => console.log('post', res))
         // API.login({ username: this.state.username, password: this.state.password }).then(res => console.log(res))
 
         // // // API.getRewardsByUserID(this.state.username).then(res => console.log(res))

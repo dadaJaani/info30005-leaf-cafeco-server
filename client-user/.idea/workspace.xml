@@ -2,22 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7cdec205-c461-4e69-a830-d7609b7e4cd4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Procfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/controllers/restaurant_controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/controllers/reward_controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/controllers/sale_controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/controllers/user_controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/controllers/controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/controllers/controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/models/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/models/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/models/restaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/models/restaurant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/models/rewards.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/models/rewards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/models/sales.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/models/sales.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/models/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/routes/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/routes/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/controllers/restaurant_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/controllers/restaurant_controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/controllers/user_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/controllers/user_controller.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -51,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Form.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="46" column="14" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
+            <state relative-caret-position="555">
+              <caret line="44" column="57" selection-start-line="44" selection-start-column="57" selection-end-line="44" selection-end-column="57" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -63,10 +51,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/api.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="635">
+            <state relative-caret-position="1155">
               <caret line="77" column="10" lean-forward="true" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
             </state>
           </provider>
@@ -93,8 +81,8 @@
         <option value="$PROJECT_DIR$/src/styles/main.css" />
         <option value="$PROJECT_DIR$/src/components/LogIn.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/components/Form.js" />
         <option value="$PROJECT_DIR$/src/utils/api.js" />
+        <option value="$PROJECT_DIR$/src/components/Form.js" />
       </list>
     </option>
   </component>
@@ -177,12 +165,12 @@
       <updated>1553770631130</updated>
       <workItem from="1553770632314" duration="11895000" />
       <workItem from="1554432024931" duration="4311000" />
-      <workItem from="1554814144152" duration="4222000" />
+      <workItem from="1554814144152" duration="4470000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20428000" />
+    <option name="totallyTimeSpent" value="20676000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
@@ -243,6 +231,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1155">
+          <caret line="77" column="10" lean-forward="true" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/LogIn.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -252,18 +247,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Form.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="46" column="14" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
+        <state relative-caret-position="555">
+          <caret line="44" column="57" selection-start-line="44" selection-start-column="57" selection-end-line="44" selection-end-column="57" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="77" column="10" lean-forward="true" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
         </state>
       </provider>
     </entry>
