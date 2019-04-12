@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var Restaurants = mongoose.model('restaurants');
 
+// ToDo: Check password functionality.
+
 var createRestaurant = function(req,res){
     var newRestaurant = Restaurants(assembleRestaurant(req));
 
