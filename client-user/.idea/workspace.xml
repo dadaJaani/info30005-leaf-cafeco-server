@@ -2,11 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7cdec205-c461-4e69-a830-d7609b7e4cd4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Procfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/controllers/restaurant_controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/controllers/reward_controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/controllers/sale_controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/controllers/user_controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/controllers/controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/controllers/controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/models/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/models/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/models/restaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/models/restaurant.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/models/rewards.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/models/rewards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/models/sales.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/models/sales.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/models/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/routes/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/routes/routes.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -176,6 +186,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24954791" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
