@@ -7,9 +7,8 @@ var reward_controller = require('../controllers/reward_controller.js');
 var sale_controller = require('../controllers/sale_controller.js');
 
 
-// router.post('/api',controller.createCafe);
 router.get('/', function (req, res) {
-    res.send('Hello?');
+    res.send('Cafeco by Leaf.');
 });
 
 router.get('/user/checkID/:id', );

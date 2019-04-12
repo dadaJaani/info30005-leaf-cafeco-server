@@ -1,4 +1,3 @@
-// Set up express
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -20,6 +19,7 @@ var routes = require('./routes/routes.js');
 app.use('/',routes);
 
 // Start the server
-app.listen(process.env.PORT || 3001,function(req,res){
-    console.log('Cafeco server listening on port 3001');
+var port = process.env.PORT || 3001;
+app.listen(port,function(req,res){
+    console.log('Cafeco server listening on port: ' + port + '.');
 });
