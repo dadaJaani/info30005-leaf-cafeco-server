@@ -63,9 +63,9 @@ var findAllRestaurants = function(req,res){
 
 var searchRestaurant = function(req, res){
     var restaurantId = req.params.id;
-    Restaurants.find({id:restaurantId},function(err,searchedRestourant){
+    Restaurants.find({id:restaurantId},function(err,searchedRestaurant){
         if(!err){
-            res.send(searchedRestourant);
+            res.send(searchedRestaurant);
         }else{
             res.sendStatus(404);
         }
