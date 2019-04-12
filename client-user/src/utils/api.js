@@ -39,10 +39,22 @@ export const editUser = (userID, edited) =>
     }).then(res => res.json())
 
 
-// FUNCTION TO GET USER
+// FUNCTION TO CHECK USER ID
 export const checkUserID = (id) =>
     fetch(`${api}/user/checkID/${id}`, { headers })
         .then(res => res.json())
+
+// FUNCTION TO VALID USER ID AND LOGIN
+export const login = (loginDetails) =>
+    fetch(`${api}/user/login/${loginDetails.username}`, {
+        method: 'post',
+        headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify( loginDetails )
+    }).then(res => res.json())
+
 
 // FUNCTION TO DELETE USER
 export const deleteUser = (userID) =>
@@ -53,6 +65,18 @@ export const deleteUser = (userID) =>
             'Content-Type': 'application/json'
         },
     }).then( res => console.log(res))
+
+
+
+
+// FUNCTION TO GET ALL REWARDS
+export const getRewardsByUserID = (userID) =>
+    fetch(`${api}/rewards/${userID}`, {
+        headers: {
+            ...headers,
+            'Content-Type': 'application/json'
+        },
+    }).then( res => res.json())
 
 // export const getCategories = () =>
 //     fetch(`${api}/categories`, { headers })

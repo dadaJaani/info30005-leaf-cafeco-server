@@ -74,15 +74,41 @@ var validateUserID = function (req, res){
 
     User.findOne({ id: userID }, function(err, theUser){
         if (theUser)
-            res.send(theUser)
+            res.send(true)
         else
-            res.send({ username: ""})
+            res.send(false)
     });
 };
 
-// FUNCTION TO CHECK PASSWORD WHEN USER SIGNS IN
+// FUNCTION TO LOGIN WHEN USER SIGNS IN
+var loginUser = function (req, res){
+    var userID = req.params.id;
 
-// FUNCTION TO GET USER
+    var newUser = {
+        "id":       req.body.username,
+        "password": req.body.password,
+    };
+
+    User.findOne({ id: newUser.id, password: newUser.password }, function(err, theUser){
+        if (theUser)
+            res.send(true)
+        else
+            res.send(false)
+    });
+};
+
+// FUNCTION TO RETRIEVE ALL REWARDS FOR A USER
+var getRewardsForUsers = function (req, res) {
+    var userID = req.params.id;
+
+    Reward.find({ userId: userID}, function (err, rewards) {
+        if (!err)
+            res.send(rewards);
+        else
+            res.send(err);
+
+    })
+};
 
 
 
@@ -91,11 +117,62 @@ var validateUserID = function (req, res){
 // SALES FUNCTIONS
 // =============================================
 
+// Create sale
+var createSale = function (req, res){
+    var newSale = new Sale({
+        "restaurantId": req.body.restaurantId,
+        "date":         req.body.date,
+        "price":        req.body.price,
+    });
+
+    newSale.save(function (err, createdSale)  {
+        if (!err){
+            res.send(createdSale);
+        }
+        else {
+            res.send(err);
+        }
+    });
+};
+
+// Get the sale by the id provided by the user
+var getSalesByID = function (req, res){
+    var saleId = req.params.id;
+
+    Sale.findOne({ id: saleId }, function (err, sale) {
+        if (!err)
+            res.send(sale);
+        else
+            res.send(err);
+    })
+};
+
+
 
 
 // =============================================
 // REWARDS FUNCTIONS
 // =============================================
+
+var createReward = function (req, res){
+    var newReward = new Reward({
+        "userId": req.body.userId,
+        "price":  req.body.price,
+        "date":   req.body.date,
+        "type":   req.body.type,
+    });
+
+    newReward.save(function (err, createdReward)  {
+        if (!err){
+            res.send(createdReward);
+        }
+        else {
+            res.send(err);
+        }
+    });
+}
+
+
 
 // =============================================
 // ALEKS WILL DO
@@ -113,9 +190,22 @@ var validateUserID = function (req, res){
 
 // FUNCTION TO GET RESTAURANT DATA
 
-module.exports.createUser = createUser;
-module.exports.deleteUser = deleteUser;
-module.exports.editUser = editUser;
+
+// EXPORTING FUNCTIONS RELATED TO THE USER FUNCTIONALITY
+module.exports.createUser         = createUser;
+module.exports.deleteUser         = deleteUser;
+module.exports.editUser           = editUser;
+module.exports.validateUserID     = validateUserID;
+module.exports.loginUser          = loginUser;
+module.exports.getRewardsForUsers = getRewardsForUsers;
+
+// EXPORTING FUNCTIONS RELATED TO THE SALES FUNCTIONALITY
+module.exports.getSalesByID   = getSalesByID;
+module.exports.createSale     = createSale;
+// module.exports.retrieveSale   = retrieveSale;
+
+
+module.exports.createReward = createReward;
 
 
 // var Cafe = mongoose.model('cafes');

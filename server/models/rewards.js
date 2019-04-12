@@ -4,7 +4,7 @@ var rewardSchema = mongoose.Schema(
     {
         "id":{type: String, lowercase: true, trim: true, unique: true },
         "userId":String,
-        "price":String,
+        "price":Number,
         "date":String,
         "type":String,
     }

@@ -6,10 +6,12 @@ var controller = require('../controllers/controller.js');
 
 // router.post('/api',controller.createCafe);
 router.get('/', function (req, res) {
-    res.send('Hello?');
+    res.send('cafeco server running: by Leaf');
 });
 
-router.get('/user/checkID/:id', );
+router.get('/user/checkID/:id', controller.validateUserID);
+
+router.post('/user/login/:id', controller.loginUser);
 
 router.post('/user', controller.createUser);
 
@@ -17,24 +19,14 @@ router.put('/user/:id', controller.editUser);
 
 router.delete('/user/:id', controller.deleteUser);
 
+router.get('/user/:id/rewards', controller.getRewardsForUsers);
 
-
-// router.get('/api',controller.findAllCafes);
-// router.get('/api/id/:id',controller.findOneCafe);
-// router.get('/api/name/:name',controller.findCafeByName);
-
-
-// Create new cafe
-// router.post('/api',controller.createCafe);
+// router.get('/sales/:id', controller.getSaleByID);
 //
-// // Find all cafes
-// router.get('/api',controller.findAllCafes);
+// router.get('/rewards/:id/', controller.getRewardByID);
 //
-// // Find one cafe by id
-// router.get('/api/id/:id',controller.findOneCafe);
 //
-// //Find one cafe by name
-// router.get('/api/name/:name',controller.findCafeByName);
+// router.get('/restaurants/:id/sales', controller.getSaleByID);
 
 
 module.exports = router;
