@@ -10,7 +10,7 @@ mongoose.connect('mongodb+srv://alokanc:blah@cluster0-hjvc5.mongodb.net/test?ret
     if(!err){
         console.log('Connected to database.');
     }else{
-        console.log('Failed to connect to database.');
+        console.log(err);
     }
 });
 
