@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 // mongoose.connect('mongodb://wrehmani:acdc1234@ds227146.mlab.com:27146/info30005-cafeco',function(err){
 
 // Mongo Atlas account
-mongoose.connect('mongodb+srv://wrehmani:acdc1234@cafeco-fww6o.mongodb.net/test?retryWrites=true',function(err){
+mongoose.connect('mongodb+srv://wrehmani:acdc1234@cafeco-fww6o.mongodb.net/test?retryWrites=true',{ useNewUrlParser: true },function(err){
     if(!err){
         console.log('Connected to database.');
     }else{
