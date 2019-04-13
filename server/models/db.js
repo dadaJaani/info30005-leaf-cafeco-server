@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 // mongoose.connect('mongodb://wrehmani:acdc1234@ds227146.mlab.com:27146/info30005-cafeco',function(err){
 
 // Mongo Atlas account
-mongoose.connect('mongodb+srv://wrehmani:acdc1234@cafeco-fww6o.mongodb.net/test?retryWrites=true',{ useNewUrlParser: true },function(err){
+mongoose.set('useCreateIndex', true); // Silence deprecation warning.
+mongoose.connect('mongodb+srv://alokanc:blah@cluster0-hjvc5.mongodb.net/test?retryWrites=true',{ useNewUrlParser: true },function(err){
     if(!err){
         console.log('Connected to database.');
     }else{
