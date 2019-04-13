@@ -1,6 +1,7 @@
 Version to look for is tagged: Assignment2Deliverable.
 
-Heroku address is: https://cafeco.herokuapp.com.
+Git repository: https://github.com/dadaJaani/info30005-leaf-cafeco
+Heroku address: https://cafeco.herokuapp.com.
 
 The four implemented pieces of functionality are
 (see info30005-leaf-cafeco/server/controllers directory):
@@ -9,4 +10,3 @@ The four implemented pieces of functionality are
 * Sale (CRUD, find all, search)
 * Reward (CRUD, find all, search)
 
-Also added is a test/ directory. It contains an Insomnia export file which contains all REST inputs.
