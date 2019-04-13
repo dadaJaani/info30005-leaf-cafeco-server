@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 // Making Schema for User
 var userSchema = mongoose.Schema(
     {
-        "id":{ type: String, lowercase: true, trim: true, unique: true },
+        "username":{ type: String, lowercase: true, trim: true, unique: true },
         "password":{ type: String, lowercase: true, trim: true },
         "email":{ type: String, lowercase: true, trim: true, unique: true },
         "fname":{ type: String, trim: true },

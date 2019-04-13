@@ -11,72 +11,38 @@ router.get('/', function (req, res) {
     res.send('Cafeco by Leaf.')
 });
 
-// ========================================================================
-// Routes for USER FUNCTIONALITY
-// ========================================================================
-// Create user
+// Routes for User functionality.
 router.post('/user', user_controller.createUser);
-// Edit user
-router.put('/user/:id', user_controller.editUser);
-// Get all users
+router.put('/user/:username', user_controller.editUser);
 router.get('/findAllUsers',user_controller.findAllUsers);
-// Validate a user ID
-router.get('/user/checkID/:id', user_controller.validateUserID);
-// Login and send user if ID and password is correct
-router.post('/user/login/:id', user_controller.loginUser);
-// Search a user
-router.get('/searchUser/:id',user_controller.searchUser);
-// Get all the rewards for the user
-router.get('/user/:id/rewards', user_controller.getRewardsForUsers);
-// Delete a user
-router.delete('/user/:id', user_controller.deleteUser);
+router.get('/searchUser/:username',user_controller.searchUser);
+router.delete('/user/:username', user_controller.deleteUser);
+router.get('/user/validate/:username', user_controller.validateUsername);
+router.post('/user/login', user_controller.loginUser);
+router.get('/user/:username/rewards', user_controller.getRewardsForUsers);
 
-// ========================================================================
-// Routes for RESTAURANT FUNCTIONALITY
-// ========================================================================
-// Create a Restaurant
+// Routes for Restaurant functionality.
 router.post('/restaurant',restaurant_controller.createRestaurant);
-// Edit a restaurant
 router.put('/restaurant/:id',restaurant_controller.editRestaurant);
-// Find all restaurants
 router.get('/findAllRestaurants',restaurant_controller.findAllRestaurants);
-// Search a restaurant
 router.get('/searchRestaurant/:id',restaurant_controller.searchRestaurant);
-// Delete a restaurant
 router.delete('/restaurant/:id',restaurant_controller.deleteRestaurant);
-// Validate a user ID
-router.get('/restaurant/checkID/:id', restaurant_controller.validateRestaurantID);
-// Login and send user if ID and password is correct
-router.post('/restaurant/login/', restaurant_controller.loginRestaurant);
+router.get('/restaurant/validate/:id', restaurant_controller.validateRestaurantID);
+router.post('/restaurant/login', restaurant_controller.loginRestaurant);
 
-
-// ========================================================================
-// Routes for REWARD FUNCTIONALITY
-// ========================================================================
-// Create a reward
+// Routes for Reward functionality.
 router.post('/reward',reward_controller.createReward);
-// Edit a reward
 router.put('/reward/:id', reward_controller.editReward);
-// Find all rewards
 router.get('/findAllRewards',reward_controller.findAllRewards);
-// Search a reward
 router.get('/searchReward/:id',reward_controller.searchReward);
-// Delete a reward
 router.delete('/reward/:id',reward_controller.deleteReward);
 
-// ========================================================================
-// Routes for SALE FUNCTIONALITY
-// ========================================================================
-// Create a sale
+// Routes for Sale functionality.
 router.post('/sale',sale_controller.createSale);
-// Edit a sale
 router.put('/sale/:id', sale_controller.editSale);
-// Find all sales
 router.get('/findAllSales',sale_controller.findAllSales);
-// Search and get a sale
 router.get('/searchSale/:id',sale_controller.searchSale);
-// Delete a sale
 router.delete('/sale/:id',sale_controller.deleteSale);
 
-// Export every route as router to be used in app.js
+// Export every route as router to be used in app.js.
 module.exports = router;

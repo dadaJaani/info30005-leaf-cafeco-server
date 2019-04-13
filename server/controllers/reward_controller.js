@@ -1,13 +1,15 @@
 var mongoose = require('mongoose');
 
-// Import rewards schema
+// Import rewards schema.
 var Rewards = mongoose.model('rewards');
 
-// HELPER FUNCTION TO BE USED LATER
+// Reward controller.
+// Defines functions which deal with rewards by restaurants.
+
 var assembleReward = function (req) {
     var reward = {
         "id":req.body.id,
-        "userId":req.body.userId,
+        "username":req.body.username,
         "price":req.body.price,
         "date":req.body.date,
         "type":req.body.type,
@@ -16,7 +18,6 @@ var assembleReward = function (req) {
     return reward;
 };
 
-// FUNCTION TO CREATE A REWARD
 var createReward = function(req,res){
     var newReward = Rewards(assembleReward(req));
 
@@ -26,14 +27,13 @@ var createReward = function(req,res){
         if(!err){
             res.send(savedReward);
         }else{
-            console.log(err)
+            // console.log(err);
             res.sendStatus(400);
         }
     });
 };
 
 
-// FUNCTION TO EDIT A REWARD
 var editReward = function(req,res){
     var rewardId = req.params.id;
     var rewardUpdate = assembleReward(req);
@@ -44,13 +44,12 @@ var editReward = function(req,res){
         if(!err){
             res.send(updatedReward);
         }else{
-            console.log(err);
+            // console.log(err);
             res.sendStatus(400);
         }
     });
 };
 
-// FUNCTION TO FIND ALL REWARDS
 var findAllRewards = function(req,res){
     Rewards.find(function(err,allRewards){
         if(!err){
@@ -61,7 +60,6 @@ var findAllRewards = function(req,res){
     });
 };
 
-// FUNCTION TO SEARCH A REWARD
 var searchReward = function(req, res){
     var rewardId = req.params.id;
     Rewards.find({id:rewardId},function(err,searchedReward){
@@ -73,7 +71,6 @@ var searchReward = function(req, res){
     });
 };
 
-// FUNCTION TO DELETE A REWARD
 var deleteReward = function(req, res){
     var rewardId = req.params.id;
     Rewards.deleteOne({id:rewardId},function(err){

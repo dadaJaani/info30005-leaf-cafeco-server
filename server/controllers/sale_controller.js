@@ -1,9 +1,11 @@
 var mongoose = require('mongoose');
 
-// Import sales schema
+// Import sales schema.
 var Sales = mongoose.model('sales');
 
-// HELPER FUNCTION TO BE USED LATER
+// Sale controller.
+// Defines functions which deal with sales by restaurants.
+
 var assembleSale = function (req) {
     var sale = {
         "id":req.body.id,
@@ -15,7 +17,6 @@ var assembleSale = function (req) {
     return sale;
 };
 
-// FUNCTION TO CREATE A SALE
 var createSale = function(req,res){
     var newSale = Sales(assembleSale(req));
 
@@ -25,13 +26,12 @@ var createSale = function(req,res){
         if(!err){
             res.send(savedSale);
         }else{
-            console.log(err)
+            // console.log(err);
             res.sendStatus(400);
         }
     });
 };
 
-// FUNCTION TO EDIT A SALE
 var editSale = function(req,res){
     var saleId = req.params.id;
     var saleUpdate = assembleSale(req);
@@ -42,13 +42,12 @@ var editSale = function(req,res){
         if(!err){
             res.send(updatedSale);
         }else{
-            console.log(err);
+            // console.log(err);
             res.sendStatus(400);
         }
     });
 };
 
-// FUNCTION TO SEARCH ALL SALES
 var findAllSales = function(req,res){
     Sales.find(function(err,allSales){
         if(!err){
@@ -59,7 +58,6 @@ var findAllSales = function(req,res){
     });
 };
 
-// FUNCTION TO SEARCH A SALE
 var searchSale = function(req, res){
     var saleId = req.params.id;
     Sales.find({id:saleId},function(err,searchedSale){
@@ -71,7 +69,6 @@ var searchSale = function(req, res){
     });
 };
 
-// FUNCTION TO DELETE A SALE
 var deleteSale = function(req, res){
     var saleId = req.params.id;
     Sales.deleteOne({id:saleId},function(err){

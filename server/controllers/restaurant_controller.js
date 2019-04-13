@@ -1,12 +1,14 @@
 var mongoose = require('mongoose');
 
-// Import restaurants schema
+// Import restaurants schema.
 var Restaurants = mongoose.model('restaurants');
 
-// HELPER FUNCTION TO BE USED IN FUNCTIONS
+// Restaurant controller.
+// Defines functions which deal with restaurants.
+
 var assembleRestaurant = function (req) {
     var restaurant = {
-        "id":req.body.username, // WE GETTING USERNAME BECAUSE FRONTEND SENDS USERNA
+        "id":req.body.id,
         "password":req.body.password,
         "email":req.body.email,
         "name":req.body.name,
@@ -23,7 +25,6 @@ var assembleRestaurant = function (req) {
     return restaurant;
 };
 
-// FUNCTION TO CREATE RESTAURANT
 var createRestaurant = function(req,res){
     var newRestaurant = Restaurants(assembleRestaurant(req));
 
@@ -33,13 +34,12 @@ var createRestaurant = function(req,res){
         if(!err){
             res.send(savedRestaurant);
         }else{
-            console.log(err)
+            // console.log(err);
             res.sendStatus(400);
         }
     });
 };
 
-// FUNCTION TO EDIT RESTAURANT
 var editRestaurant = function(req,res){
     var restaurantId = req.params.id;
     var restaurantUpdate = assembleRestaurant(req);
@@ -50,13 +50,12 @@ var editRestaurant = function(req,res){
         if(!err){
             res.send(updatedRestaurant);
         }else{
-            console.log(err);
+            // console.log(err);
             res.sendStatus(400);
         }
     });
 };
 
-// FUNCTION TO GET ALL RESTAURANTS
 var findAllRestaurants = function(req,res){
     Restaurants.find(function(err,allRestaurants){
         if(!err){
@@ -67,7 +66,6 @@ var findAllRestaurants = function(req,res){
     });
 };
 
-// FUNCTION TO SEARCH A RESTAURANT
 var searchRestaurant = function(req, res){
     var restaurantId = req.params.id;
     Restaurants.find({id:restaurantId},function(err,searchedRestaurant){
@@ -79,7 +77,6 @@ var searchRestaurant = function(req, res){
     });
 };
 
-// FUNCTION TO DELETE A RESTAURANT
 var deleteRestaurant = function(req, res){
     var restaurantId = req.params.id;
     Restaurants.deleteOne({id:restaurantId},function(err){
@@ -91,11 +88,10 @@ var deleteRestaurant = function(req, res){
     });
 };
 
-// FUNCTION TO GET CHECK IF RESTAURANT ID EXISTS
 var validateRestaurantID = function (req, res){
-    var restaurantID = req.params.id;
+    var restaurantId = req.params.id;
 
-    Restaurants.findOne({ id: restaurantID }, function(err, theUser){
+    Restaurants.findOne({ id: restaurantId }, function(err, theUser){
         if (theUser)
             res.send(true)
         else
@@ -103,16 +99,15 @@ var validateRestaurantID = function (req, res){
     });
 };
 
-// FUNCTION TO LOGIN WHEN RESTAURANT SIGNS IN
 var loginRestaurant = function (req, res){
 
     var loginAttempt = {
-        "id":       req.body.username,
+        "id": req.body.id,
         "password": req.body.password,
     };
 
     Restaurants.findOne({ id: loginAttempt.id, password: loginAttempt.password }, function(err, theRestaurant){
-        if (theUser)
+        if (theRestaurant)
             res.send(theRestaurant)
         else
             res.send(false)

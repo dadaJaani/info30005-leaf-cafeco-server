@@ -7,7 +7,6 @@ var foodReviewSchema = mongoose.Schema(
             "review":String,
             "rating":Number
     }
-
 );
 
 // Making Sub-schema
@@ -17,7 +16,6 @@ var sustainabilityReviewSchema = mongoose.Schema(
         "review":String,
         "rating":Number
     }
-
 );
 
 // Making Schema for Restaurant

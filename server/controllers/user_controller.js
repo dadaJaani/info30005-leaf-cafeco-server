@@ -1,17 +1,17 @@
 var mongoose = require('mongoose');
 
-// Import user schema
-var Users = mongoose.model('users');
+// Import user schema.
+var User = mongoose.model('users');
+var Reward = mongoose.model('rewards');
 
-// =============================================
-// USER FUNCTIONS
-// =============================================
+// User controller.
+// Defines functions which deal with input concerning users of the cafeco system.
+// This includes the retrieval of rewards for users.
 
-
-// Helper function to be used in other functions
+// Helper function to be used in other functions.
 var assembleUser = function (req) {
     var user = {
-        "id":req.body.username, // WE GETTING USERNAME BECAUSE FRONTEND SENDS USERNAME
+        "username":req.body.username,
         "password":req.body.password,
         "email":req.body.email,
         "fname":req.body.fname,
@@ -23,9 +23,8 @@ var assembleUser = function (req) {
     return user;
 };
 
-// FUNCTION TO CREATE USER
 var createUser = function(req, res){
-    var newUser = new Users(assembleUser(req));
+    var newUser = new User(assembleUser(req));
 
     newUser.save(function (err, createdUser){
         if (!err){
@@ -38,12 +37,11 @@ var createUser = function(req, res){
     });
 };
 
-// FUNCTION TO EDIT USER
 var editUser = function(req, res){
-    var userId = req.params.id;
+    var username = req.params.username;
     var userUpdate = assembleUser(req);
 
-    Users.updateOne({ id: userId }, userUpdate, function(err, updatedUser) {
+    User.updateOne({ username: username }, userUpdate, function(err, updatedUser) {
         if (!err){
             res.send(updatedUser);
         }
@@ -53,10 +51,9 @@ var editUser = function(req, res){
     });
 };
 
-// FUNCTION TO GET ALL USER
 var findAllUsers = function(req,res){
 
-    Users.find(function(err, allUsers){
+    User.find(function(err, allUsers){
         if(!err){
             res.send(allUsers);
         } else {
@@ -65,10 +62,10 @@ var findAllUsers = function(req,res){
     });
 };
 
-// FUNCTION TO SEARCH A USER
 var searchUser = function(req, res){
-    var userId = req.params.id;
-    Users.find({id:userId},function(err,searchedUser){
+    var username = req.params.username;
+
+    User.find({username:username},function(err,searchedUser){
         if(!err){
             res.send(searchedUser);
         }else{
@@ -77,13 +74,12 @@ var searchUser = function(req, res){
     });
 };
 
-// FUNCTION TO DELETE USER
 var deleteUser = function(req, res){
-    var userId = req.params.id;
+    var username = req.params.username;
 
-    Users.deleteOne({ id: userId } ,function(err){
+    User.deleteOne({ username: username } ,function(err){
         if(!err){
-            res.send(userId);
+            res.send(username);
         }else{
             res.sendStatus(404);
         }
@@ -91,40 +87,36 @@ var deleteUser = function(req, res){
 
 };
 
-// FUNCTION TO GET CHECK IF USER ID EXISTS
-var validateUserID = function (req, res){
-    var userID = req.params.id;
+// Checks if the username exists.
+var validateUsername = function (req, res){
+    var username = req.params.username;
 
-    User.findOne({ id: userID }, function(err, theUser){
+    User.findOne({ username: username }, function(err, theUser){
         if (theUser)
-            res.send(true)
+            res.send(true);
         else
-            res.send(false)
+            res.send(false);
     });
 };
 
-// FUNCTION TO LOGIN WHEN USER SIGNS IN
 var loginUser = function (req, res){
-    var userID = req.params.id;
-
     var loginAttempt = {
-        "id":       req.body.username,
+        "username": req.body.username,
         "password": req.body.password,
     };
 
-    User.findOne({ id: loginAttempt.id, password: loginAttempt.password }, function(err, theUser){
+    User.findOne({ username: loginAttempt.username, password: loginAttempt.password }, function(err, theUser){
         if (theUser)
-            res.send(theUser)
+            res.send(theUser);
         else
-            res.send(false)
+            res.send(false);
     });
 };
 
-// FUNCTION TO RETRIEVE ALL REWARDS FOR A USER
 var getRewardsForUsers = function (req, res) {
-    var userID = req.params.id;
+    var username = req.params.username;
 
-    Reward.find({ userId: userID}, function (err, rewards) {
+    Reward.find({ username: username}, function (err, rewards) {
         if (!err)
             res.send(rewards);
         else
@@ -138,6 +130,6 @@ module.exports.editUser           = editUser;
 module.exports.findAllUsers       = findAllUsers;
 module.exports.searchUser         = searchUser;
 module.exports.deleteUser         = deleteUser;
-module.exports.validateUserID     = validateUserID;
+module.exports.validateUsername   = validateUsername;
 module.exports.loginUser          = loginUser;
 module.exports.getRewardsForUsers = getRewardsForUsers;

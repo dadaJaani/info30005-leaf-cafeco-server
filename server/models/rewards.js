@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var rewardSchema = mongoose.Schema(
     {
         "id":{type: String, lowercase: true, trim: true, unique: true },
-        "userId":{ type: String, trim: true },
+        "username":{ type: String, trim: true },
         "price":Number,
         "date":Date,
         "type":String,
