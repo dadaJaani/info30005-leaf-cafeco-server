@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7cdec205-c461-4e69-a830-d7609b7e4cd4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Readme.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -125,9 +124,7 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="135">
-                <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-              </first_editor>
+              <first_editor />
               <second_editor />
             </state>
           </provider>
@@ -260,12 +257,12 @@
       <workItem from="1553770632314" duration="11895000" />
       <workItem from="1554432024931" duration="4311000" />
       <workItem from="1554814144152" duration="5531000" />
-      <workItem from="1555319660899" duration="27328000" />
+      <workItem from="1555319660899" duration="27398000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49065000" />
+    <option name="totallyTimeSpent" value="49135000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="597" y="0" width="1083" height="1050" extended-state="6" />
@@ -437,9 +434,7 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="135">
-            <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-          </first_editor>
+          <first_editor />
           <second_editor />
         </state>
       </provider>
