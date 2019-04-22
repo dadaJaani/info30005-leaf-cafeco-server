@@ -1,33 +1,171 @@
-.App {
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  /*align-items: stretch;*/
+  background-color: ghostwhite;
+  font: 20px Georgia, Serif;
+  overflow: hidden;
+}
+
+.sidebar-container {
+  flex: 1;
+  /*background-color: darkgreen;*/
+  display: flex;
+  flex-flow: column wrap;
+}
+
+
+.main-container {
+  display: flex;
+  flex: 3;
+  flex-flow: column wrap;
+  /*background-color: aqua;*/
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+/*
+.title {
+  text-align: right;
 }
+*/
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+/*
+.sidebar {
+  text-align: center;
+  background-color: olivedrab;
+  width: 300px;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+*/
+
+.menu {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 2;
+  border-right: 5px solid black;
 }
 
-.App-link {
-  color: #61dafb;
+.restaurantInfo {
+  /*height: 150vw;*/
+  flex: 3;
+  /*background-color: aliceblue;*/
+  border-right: 5px solid black;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.account {
+  /*height: 100vw;*/
+  /*background-color: bisque;*/
+  cursor: pointer;
+  text-align: center;
+  flex: 1;
+  border: 1px solid black;
+  border-right: hidden;
+  transition: 0.5s;
 }
+.account:hover {
+  transform: scale(1.05);
+  background-color: darkgray;
+  border: none;
+}
+
+.review {
+  flex: 1;
+  /*background-color: cadetblue;*/
+  cursor: pointer;
+  text-align: center;
+  border: hidden;
+  transition: 0.5s;
+}
+.review:hover{
+  transform: scale(1.05);
+  background-color: darkgray;
+  border: none;
+}
+.logout {
+  /*height: 100px;*/
+  /*background-color: coral;*/
+  /*align-self: flex-end;*/
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid black;
+  border-right: hidden;
+  flex: 1;
+}
+.logout:hover {
+  transform: scale(1.05);
+  background-color: darkgray;
+  border: none;
+}
+
+.header-title {
+  flex: 1;
+  /*background-color: chocolate;*/
+  border-bottom: 2px solid black;
+  font: 40px Lucinda console, Serif ;
+  text-align: center;
+  line-height: 65px;
+}
+
+.body-container {
+  display:flex;
+  flex: 9;
+  padding: 50px;
+  flex-flow: column wrap;
+}
+
+.reviews {
+  /*height: 100px;
+  width: 300px;*/
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+  flex: 1;
+  /*background-color: darkgray;*/
+  border: 1px solid black;
+  text-align: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* .reviewList {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  list-style: none;
+}*/
+
+.reviewItem {
+  justify-content: space-around;
+  padding: 30px;
+  /*background-color: coral;*/
+  border-style: solid hidden;
+  border-color: black;
+  border-width: 1px;
+  transition: transform .5s;
+}
+.reviewItem:hover {
+  transform: scale(1.05);
+  border: none;
+  background-color: darkgray;
+}
+
+img{
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  /*float: left;*/
+  padding: 10px;
+}
+
+ /*@media all {
+  .
+}*/
+ p{
+   padding: 60px;
+ }
+
