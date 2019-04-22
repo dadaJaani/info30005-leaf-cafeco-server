@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7cdec205-c461-4e69-a830-d7609b7e4cd4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/NavBar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/NavBar2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SignUp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/Dashboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LogIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LogIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/models/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/models/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Readme.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -126,8 +111,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/screens/Home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="39" column="56" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
+            <state relative-caret-position="465">
+              <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
               <folding>
                 <element signature="e#83#115#0" expanded="true" />
               </folding>
@@ -261,18 +246,18 @@
       <workItem from="1553770632314" duration="11895000" />
       <workItem from="1554432024931" duration="4311000" />
       <workItem from="1554814144152" duration="5531000" />
-      <workItem from="1555319660899" duration="27006000" />
+      <workItem from="1555319660899" duration="27093000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48743000" />
+    <option name="totallyTimeSpent" value="48830000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="390" y="0" width="1290" height="1050" extended-state="6" />
+    <frame x="597" y="0" width="1083" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21355398" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2551789" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -427,8 +412,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/Home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="39" column="56" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
+        <state relative-caret-position="465">
+          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
           <folding>
             <element signature="e#83#115#0" expanded="true" />
           </folding>
