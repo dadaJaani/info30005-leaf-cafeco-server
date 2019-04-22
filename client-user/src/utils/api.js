@@ -13,12 +13,15 @@ const headers = {
     // 'Access-Control-Allow-Origin': 'http://localhost:3001'
 }
 
+
+// http://localhost:3001/user/5123cas
+
+
+
 // FUNCTION TO CREATE USER
 export const createUser = (newUser) =>
     fetch(`${api}/user`, {
         method: 'post',
-        // mode: "cors", // or without this line
-        // redirect: 'follow',
         headers: {
             ...headers,
             'Content-Type': 'application/json'

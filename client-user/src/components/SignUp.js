@@ -5,14 +5,18 @@ import * as API from '../utils/api'
 
 import '../styles/main.css'
 
-class LogIn extends Component {
+class SignUp extends Component {
 
     constructor(props){
         super(props)
 
         this.state = {
             username: '',
+            fname: '',
+            lname: '',
+            email: '',
             password: '',
+            cpassword: '',
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -22,7 +26,11 @@ class LogIn extends Component {
     handleChange = () => {
         this.setState({
             username: this.refs.usernameIN.value,
+            fname: this.refs.fnameIN.value,
+            lname: this.refs.lnameIN.value,
+            email: this.refs.emailIN.value,
             password: this.refs.passwordIN.value,
+            cpassword: this.refs.cpasswordIN.value,
         })
     }
 
@@ -41,37 +49,28 @@ class LogIn extends Component {
         // API.getUser(this.state).then(res => console.log('get', res))
         // API.deleteUser(this.state.username).then(res => console.log(res))
 
-
     }
 
-    logIn = (event) => {
-        event.preventDefault();
-        this.closeLogin();
-
-
-
-    }
-
-
-    closeLogin = () => {
-        this.props.closeLogin()
+    closeSignUp = () => {
+        this.props.closeSignUp()
     }
 
 
     render(){
-        console.log(this.props)
+
         if (this.props.visible) {
-            return(
-                <div  className={'signup'}>
+            return (
+                <div className={'signup'}>
+
                     <div
                         className={'signup-backdrop'}
-                        onClick={this.closeLogin}
+                        onClick={this.closeSignUp}
                     ></div>
 
                     <div className={'signup-container'}>
 
-                        <div  className={'signup-title'}>
-                            Log In
+                        <div className={'signup-title'}>
+                            Register
                         </div>
 
                         <input
@@ -83,6 +82,29 @@ class LogIn extends Component {
                             onChange={this.handleChange}
                         />
 
+                        <input
+                            className={'signup-input'}
+                            placeholder={'First Name'}
+                            type="text"
+                            value={this.state.fname}
+                            ref="fnameIN"
+                            onChange={this.handleChange}/>
+
+                        <input
+                            className={'signup-input'}
+                            placeholder={'Last Name'}
+                            type="text"
+                            value={this.state.lname}
+                            ref="lnameIN"
+                            onChange={this.handleChange}/>
+
+                        <input
+                            className={'signup-input'}
+                            placeholder={'Email'}
+                            type="text"
+                            value={this.state.email}
+                            ref="emailIN"
+                            onChange={this.handleChange}/>
 
                         <input
                             className={'signup-input'}
@@ -92,23 +114,32 @@ class LogIn extends Component {
                             ref="passwordIN"
                             onChange={this.handleChange}/>
 
+                        <input
+                            className={'signup-input'}
+                            placeholder={'Confirm Password'}
+                            type={'password'}
+                            value={this.state.cpassword}
+                            ref="cpasswordIN"
+                            onChange={this.handleChange}/>
 
 
                         <button
                             className={'signup-button'}
-                            onClick={this.handleSubmit}>Sign Up</button>
+                            onClick={this.handleSubmit}>Sign Up
+                        </button>
+
 
                     </div>
 
                 </div>
             )
+
         } else {
-            return(
-                <div></div>
+            return (
+                <div/>
             )
         }
-
     }
 }
 
-export default LogIn;
+export default SignUp;

@@ -1,8 +1,318 @@
 
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 
 
 .input-label {
     font-size: 40px;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+}
+body {
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+.app-container{
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*flex: 0 1 auto;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.home-container{
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex: 1;
+    flex-flow: column wrap;
+    align-items: stretch;
+    justify-content: center;
+}
+
+
+.home-carousel-container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: stretch;
+    justify-content: center;
+    flex: 1;
+}
+
+.home-carousel-container  .slider-wrapper {
+
+    display: flex;
+    flex-flow: column wrap;
+    align-items: stretch;
+    justify-content: center;
+    flex: 1;
+}
+
+.home-carousel-container .carousel  {
+
+    display: flex;
+    flex-flow: column wrap;
+    align-items: stretch;
+    justify-content: center;
+    flex: 1;
+}
+
+.home-carousel-container .carousel-slider {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: stretch;
+    justify-content: center;
+    flex: 1;
+}
+
+.home-carousel-container .slide {
+    flex: 1;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: stretch;
+    justify-content: center;
+    background: 0;
+}
+
+
+.home-carousel-item {
+    display: flex;
+    flex: 1;
+    flex-flow: column wrap;
+    justify-content: stretch;
+    align-items: center;
+    background: #bfbfbf;
 
 }
 
+.button-landing {
+    width: 20%;
+    height: 2%;
+    z-index: 4;
+    background: #eee;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 5px;
+}
+
+
+
+.signup-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    background: black;
+    opacity: 0.5;
+}
+
+/*.signup {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100vw;*/
+/*    height: 100vh;*/
+/*    z-index: 2;*/
+/*}*/
+
+.signup-container {
+    position: absolute;
+    z-index: 4;
+    top: 20%;
+    left:25%;
+    width: 50%;
+    height: 60%;
+    background: #eee;
+    /*border-color: black;*/
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+    border-radius: 50px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 3px 3px 10px 0 #999;
+
+}
+
+
+.signup-input {
+    width: 50%;
+    height: 30px;
+    text-align: center;
+    border: 0;
+    margin: 10px;
+    padding: 5px;
+    font-size: 0.8em;
+    background: #eee;
+    outline:0;
+    border-bottom: 2px solid #888;
+}
+
+.signup-input:focus {
+    border-bottom: 2px solid #11a820;
+
+}
+
+.signup-title {
+    font-size: 1.5em;
+    margin: 10px;
+    margin-bottom: 3%;
+}
+
+
+
+.signup-button {
+    outline: 0;
+    width: 30%;
+    height: 30px;
+    margin: 10px;
+    margin-top: 3%;
+    background: 0;
+    border: 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    transition: all 0.3s;
+    border-bottom: 2px solid #888;
+}
+
+.signup-button:hover {
+    background: darkslategray;
+    color: #eeeeee;
+}
+
+.navbar-container {
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 3px 3px 5px 0 #bbb;
+}
+
+.navbar-item {
+    flex: 1;
+}
+.navbar-logo {
+
+    text-align: center;
+    font-size: 25px;
+
+}
+
+.navbar-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+.profile-container {
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    flex-flow: row wrap;
+
+}
+
+.profile-item1 {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    flex: 0.7;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.profile-item2 {
+    flex: 1;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.profile-item3 {
+    flex: 1;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+
+}
+
+.history-container {
+    overflow-y: scroll;
+    height: 90vh;
+    padding: 2%;
+
+}
+
+.history-item {
+    display: flex;
+    flex-flow: row wrap;
+    height: 75px;
+    /*padding: 10px 5%;*/
+    /*border: solid 1px #999;*/
+    box-shadow: 1px 1px 2px 0 #bbb;
+    margin-top: 10px;
+}
+
+.history-item-points {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    background: #5e76bb;
+    color: #eee;
+}
+
+.history-item-info {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 0% 4%;
+    width: 67%;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+.history-item-info2 {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.history-item-name {
+    font-size: 22px;
+    font-weight: 200;
+}
+
+.history-item-types {
+
+}
+
+.history-item-date {
+
+}
+
+.profile-info-image {
+    width: 250px;
+    height: 250px;
+}
