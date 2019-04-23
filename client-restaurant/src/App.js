@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -11,7 +10,7 @@ class App extends Component {
                     <img src = "http://www.royalhotelchilliwack.com/Content/images/Hotel-Cafe-o.jpg" alt = "cafe profile image">
                     </img>
                     <p>
-                    name name name name <br/> name name name <br/>
+                    name name name name name name name <br/>
                     </p>
                 </div>
                     <div className = "menu" >
@@ -61,6 +60,10 @@ class App extends Component {
 
                         <div className = "reviewItem">
                             item 8
+                        </div>
+
+                        <div className = "reviewItem">
+                            item 9
                         </div>
                     </div>
                 </div>
