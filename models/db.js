@@ -2,8 +2,9 @@
 const mongoose = require('mongoose');
 
 // Mongo Atlas account
+
 mongoose.set('useCreateIndex', true); // Silence deprecation warning.
-mongoose.connect('mongodb+srv://alokanc:blah@cluster0-hjvc5.mongodb.net/test?retryWrites=true',{ useNewUrlParser: true },function(err){
+mongoose.connect('mongodb+srv://leaf:acdc1234@cafeco-fww6o.mongodb.net/test?retryWrites=true',{ useNewUrlParser: true },function(err){
     if(!err){
         console.log('Connected to database.');
     }else{
