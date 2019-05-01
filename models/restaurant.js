@@ -35,6 +35,8 @@ var restaurantSchema = mongoose.Schema(
         "name":{ type: String, trim: true },
         "address":{ type: String, trim: true },
         "description":String,
+        "about":String,
+        "sustainabilityPractices":String,
         "foodReviews":[foodReviewSchema],
         "sustainabilityReviews":[sustainabilityReviewSchema],
         "averageFoodRating":Number,

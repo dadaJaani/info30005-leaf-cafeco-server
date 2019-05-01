@@ -14,6 +14,8 @@ var assembleRestaurant = function (req) {
         "name":req.body.name,
         "address":req.body.address,
         "description":req.body.description,
+        "about":req.body.about,
+        "sustainabilityPractices":req.body.sustainabilityPractices,
         "foodReviews":[],
         "location": req.body.location,
         "sustainabilityReviews":[],
