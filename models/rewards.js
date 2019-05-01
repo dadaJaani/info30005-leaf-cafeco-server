@@ -5,7 +5,8 @@ var rewardSchema = mongoose.Schema(
     {
         "id":{type: String, lowercase: true, trim: true, unique: true },
         "username":{ type: String, trim: true },
-        "price":Number,
+        "restaurantID":{ type: String, trim: true },
+        "points":Number,
         "date":Date,
         "type":String,
     }

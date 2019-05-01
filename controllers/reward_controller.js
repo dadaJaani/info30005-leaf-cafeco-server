@@ -10,7 +10,8 @@ var assembleReward = function (req) {
     var reward = {
         "id":req.body.id,
         "username":req.body.username,
-        "price":req.body.price,
+        "restaurantID":req.body.restaurantID,
+        "points":req.body.points,
         "date":req.body.date,
         "type":req.body.type,
     };
@@ -71,6 +72,18 @@ var searchReward = function(req, res){
     });
 };
 
+var getRewardsForUser = function(req, res){
+    var username = req.params.username;
+
+    Rewards.find({username:username},function(err,searchedReward){
+        if(!err){
+            res.send(searchedReward);
+        }else{
+            res.send(false);
+        }
+    });
+};
+
 var deleteReward = function(req, res){
     var rewardId = req.params.id;
     Rewards.deleteOne({id:rewardId},function(err){
@@ -82,8 +95,9 @@ var deleteReward = function(req, res){
     });
 };
 
-module.exports.createReward = createReward;
-module.exports.editReward = editReward;
-module.exports.findAllRewards = findAllRewards;
-module.exports.searchReward = searchReward;
-module.exports.deleteReward = deleteReward;
+module.exports.createReward      = createReward;
+module.exports.editReward        = editReward;
+module.exports.findAllRewards    = findAllRewards;
+module.exports.searchReward      = searchReward;
+module.exports.getRewardsForUser = getRewardsForUser
+module.exports.deleteReward      = deleteReward;

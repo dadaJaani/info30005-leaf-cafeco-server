@@ -14,7 +14,15 @@ var sustainabilityReviewSchema = mongoose.Schema(
     {
         "username":{ type: String, trim: true },
         "review":String,
-        "rating":Number
+        "rating":Number,
+        "date":Date,
+    }
+);
+
+var mapLoc = mongoose.Schema(
+    {
+        "lng":Number,
+        "lat":Number,
     }
 );
 
@@ -25,14 +33,17 @@ var restaurantSchema = mongoose.Schema(
         "password":{ type: String, lowercase: true, trim: true },
         "email":{ type: String, lowercase: true, trim: true, unique: true },
         "name":{ type: String, trim: true },
-        "address":Map,
+        "address":{ type: String, trim: true },
         "description":String,
         "foodReviews":[foodReviewSchema],
         "sustainabilityReviews":[sustainabilityReviewSchema],
         "averageFoodRating":Number,
+        "location":mapLoc,
+        "website":{ type: String, lowercase: true, trim: true },
+        "phone":{ type: String, lowercase: true, trim: true },
         "averageSustainabilityRating":Number,
         "typeOfRewards": [String],
-        "photos":[String],
+        "photo":{ type: String, trim: true },
     }
 );
 

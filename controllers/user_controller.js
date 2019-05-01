@@ -16,8 +16,10 @@ var assembleUser = function (req) {
         "email":req.body.email,
         "fname":req.body.fname,
         "lname":req.body.lname,
-        "points":req.body.points,
-        "photo":req.body.photo,
+        "rewardHistory":[],
+        "savedRestaurants":[],
+        "points":0,
+        "photo":'',
     };
 
     return user;
@@ -32,7 +34,7 @@ var createUser = function(req, res){
         }
         else {
             console.log(err)
-            res.send(err);
+            res.send(false);
         }
     });
 };
@@ -99,6 +101,17 @@ var validateUsername = function (req, res){
     });
 };
 
+var validateUserEmail = function (req, res){
+    var email = req.params.email;
+
+    User.findOne({ email: email }, function(err, theUser){
+        if (theUser)
+            res.send(true);
+        else
+            res.send(false);
+    });
+};
+
 var loginUser = function (req, res){
     var loginAttempt = {
         "username": req.body.username,
@@ -131,5 +144,6 @@ module.exports.findAllUsers       = findAllUsers;
 module.exports.searchUser         = searchUser;
 module.exports.deleteUser         = deleteUser;
 module.exports.validateUsername   = validateUsername;
+module.exports.validateUserEmail  = validateUserEmail;
 module.exports.loginUser          = loginUser;
 module.exports.getRewardsForUsers = getRewardsForUsers;

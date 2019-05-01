@@ -8,6 +8,8 @@ var userSchema = mongoose.Schema(
         "email":{ type: String, lowercase: true, trim: true, unique: true },
         "fname":{ type: String, trim: true },
         "lname":{ type: String, trim: true },
+        "rewardHistory":[String],
+        "savedRestaurants":[String],
         "points":Number,
         "photo":{ type: String, trim: true },
     }

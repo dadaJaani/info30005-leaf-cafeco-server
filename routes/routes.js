@@ -18,6 +18,7 @@ router.get('/findAllUsers',user_controller.findAllUsers);
 router.get('/searchUser/:username',user_controller.searchUser);
 router.delete('/user/:username', user_controller.deleteUser);
 router.get('/user/validate/:username', user_controller.validateUsername);
+router.get('/user/validateemail/:email', user_controller.validateUserEmail);
 router.post('/user/login', user_controller.loginUser);
 router.get('/user/:username/rewards', user_controller.getRewardsForUsers);
 
@@ -28,11 +29,13 @@ router.get('/findAllRestaurants',restaurant_controller.findAllRestaurants);
 router.get('/searchRestaurant/:id',restaurant_controller.searchRestaurant);
 router.delete('/restaurant/:id',restaurant_controller.deleteRestaurant);
 router.get('/restaurant/validate/:id', restaurant_controller.validateRestaurantID);
+router.get('/restaurant/validateemail/:email', restaurant_controller.validateRestaurantEmail);
 router.post('/restaurant/login', restaurant_controller.loginRestaurant);
 
 // Routes for Reward functionality.
 router.post('/reward',reward_controller.createReward);
 router.put('/reward/:id', reward_controller.editReward);
+router.get('/user/:username/rewards',reward_controller.getRewardsForUser);
 router.get('/findAllRewards',reward_controller.findAllRewards);
 router.get('/searchReward/:id',reward_controller.searchReward);
 router.delete('/reward/:id',reward_controller.deleteReward);

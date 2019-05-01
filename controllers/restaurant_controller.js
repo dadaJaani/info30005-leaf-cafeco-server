@@ -14,12 +14,15 @@ var assembleRestaurant = function (req) {
         "name":req.body.name,
         "address":req.body.address,
         "description":req.body.description,
-        "foodReviews":req.body.foodReviews,
-        "sustainabilityReviews":req.body.sustainabilityReviews,
-        "averageFoodRating":req.body.averageFoodRating,
-        "averageSustainabilityRating":req.body.averageSustainabilityRating,
+        "foodReviews":[],
+        "location": req.body.location,
+        "sustainabilityReviews":[],
+        "averageFoodRating": 0,
+        "website": req.body.website,
+        "phone": req.body.phone,
+        "averageSustainabilityRating": 0,
         "typeOfRewards": req.body.typeOfRewards,
-        "photos":req.body.photos,
+        "photo":req.body.photos,
     };
 
     return restaurant;
@@ -28,14 +31,12 @@ var assembleRestaurant = function (req) {
 var createRestaurant = function(req,res){
     var newRestaurant = Restaurants(assembleRestaurant(req));
 
-    // console.log(newRestaurant);
-
     newRestaurant.save(function(err,savedRestaurant){
         if(!err){
             res.send(savedRestaurant);
         }else{
             // console.log(err);
-            res.sendStatus(400);
+            res.send(err);
         }
     });
 };
@@ -99,6 +100,17 @@ var validateRestaurantID = function (req, res){
     });
 };
 
+var validateRestaurantEmail = function (req, res){
+    var email = req.params.id;
+
+    Restaurants.findOne({ email: email }, function(err, theUser){
+        if (theUser)
+            res.send(true)
+        else
+            res.send(false)
+    });
+};
+
 var loginRestaurant = function (req, res){
 
     var loginAttempt = {
@@ -114,10 +126,11 @@ var loginRestaurant = function (req, res){
     });
 };
 
-module.exports.createRestaurant = createRestaurant;
-module.exports.editRestaurant = editRestaurant ;
-module.exports.findAllRestaurants = findAllRestaurants;
-module.exports.searchRestaurant = searchRestaurant;
-module.exports.deleteRestaurant = deleteRestaurant;
-module.exports.validateRestaurantID = validateRestaurantID;
-module.exports.loginRestaurant = loginRestaurant;
+module.exports.createRestaurant        = createRestaurant;
+module.exports.editRestaurant          = editRestaurant ;
+module.exports.findAllRestaurants      = findAllRestaurants;
+module.exports.searchRestaurant        = searchRestaurant;
+module.exports.deleteRestaurant        = deleteRestaurant;
+module.exports.validateRestaurantID    = validateRestaurantID;
+module.exports.validateRestaurantEmail = validateRestaurantEmail;
+module.exports.loginRestaurant         = loginRestaurant;
