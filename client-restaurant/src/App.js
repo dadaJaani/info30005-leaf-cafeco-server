@@ -1,76 +1,27 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import {BrowserRouter as Router, Route } from "react-router-dom"
+
+import restaurantdash from "./screens/restaurantdash"
+import restaurantlogin from "./screens/restaurantlogin"
+
+import "./styles/restaurantdash.css"
+import "./styles/restaurantlogin.css"
 
 class App extends Component {
-  render() {
-    return (
-        <div className = "container">
-            <div className = "sidebar-container">
-                <div className = "restaurantInfo">
-                    <img src = "http://www.royalhotelchilliwack.com/Content/images/Hotel-Cafe-o.jpg" alt = "cafe profile image">
-                    </img>
-                    <p>
-                    name name name name name name name <br/>
-                    </p>
-                </div>
-                    <div className = "menu" >
-                        <div className = "account"> My account </div>
+    render() {
+        return (
+            <Router>
+                <Route path = "/" exact component = {restaurantdash}>
+                </Route>
 
-                        <div className = "review"> Reviews and Ratings </div>
+                <Route path = "/login" exact component = {restaurantlogin}>
 
-                        <div className = "logout"> log out </div>
-                    </div>
-            </div>
+                </Route>
+            </Router>
 
+        )
+    }
 
-            <div className = "main-container">
-                <div className = "header-title">
-                    CAFECO
-                </div>
-                <div className = "body-container">
-                    reviews
-                    <div className = "reviews">
-                        <div className = "reviewItem">
-                        item 1
-                        </div>
-
-                        <div className = "reviewItem">
-                        item 2
-                        </div>
-
-                        <div className = "reviewItem">
-                        item 3
-                        </div>
-
-                        <div className = "reviewItem">
-                        item 4
-                        </div>
-
-                        <div className = "reviewItem">
-                        item 5
-                        </div>
-
-                        <div className = "reviewItem">
-                            item 6
-                        </div>
-
-                        <div className = "reviewItem">
-                            item 7
-                        </div>
-
-                        <div className = "reviewItem">
-                            item 8
-                        </div>
-
-                        <div className = "reviewItem">
-                            item 9
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-  }
 }
 
 export default App;

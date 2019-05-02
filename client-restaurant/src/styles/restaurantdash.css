@@ -1,0 +1,205 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: start;
+  background-color: #f7faf8;
+  grid-template-columns: 1fr 4fr;
+  column-gap: 3vw;
+  font-family: "Muli", sans-serif;
+  font-weight: lighter;
+}
+
+.sidebar-container {
+  display: grid;
+  grid-template-rows: 50vh;
+  background: #1a7773;
+}
+
+.menu {
+  grid-template-rows: repeat(auto-fill, 7vh);
+}
+
+.menu-item {
+  cursor: pointer;
+  text-align: center;
+  border-style: solid hidden solid hidden;
+  border-width: 4px ;
+  border-color: #4AC785;
+  transition: 0.5s;
+  color: white;
+
+}
+.menu-item:hover {
+  transform: scale(1.05);
+  background-color: #4AC785;
+  border: none;
+}
+
+#account {
+  border-bottom: hidden;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 5fr 3fr 1fr;
+  grid-template-rows: repeat(auto-fill, 5vh);
+  column-gap: 3vw;
+  color: white;
+  height: 100vh;
+
+}
+
+.menu {
+  display: grid;
+}
+
+.restaurantInfo {
+  text-align: center;
+  color: white;
+}
+
+.cafe-title {
+  font-weight: lighter;
+}
+
+/*.account {
+  cursor: pointer;
+  text-align: center;
+  border-style: solid hidden solid hidden;
+  border-width: 2px ;
+  border-color: #4AC785;
+  transition: 0.5s;
+}*/
+/*.account:hover {
+  transform: scale(1.05);
+  background-color: darkgray;
+  border: none;
+}*/
+
+/*.review {
+  cursor: pointer;
+  text-align: center;
+  border: hidden;
+  transition: 0.5s;
+}*/
+/*.review:hover{
+  transform: scale(1.05);
+  background-color: darkgray;
+  border: none;
+}*/
+/*.logout {
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid black;
+  border-right: hidden;
+  transition: 0.5s;
+}*/
+/*.logout:hover {
+  transform: scale(1.05);
+  background-color: darkgray;
+  border: none;
+}*/
+
+/*.header-title {
+  border-bottom: 2px solid black;
+}*/
+
+/*.body-container {
+  padding: 50px;
+  grid-column: 1/5;
+}*/
+
+/*.reviews {
+  border: 1px solid black;
+  text-align: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 77vh;
+  display: grid;
+  grid-auto-rows: 5em;
+}*/
+
+/*.reviewItem {
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  transition: transform .5s;
+  display: grid;
+  grid-template-rows: 10vh;
+}
+.reviewItem:hover {
+  transform: scale(1.05);
+  border: none;
+  background-color: darkgray;
+}*/
+
+.restaurant-profile-container {
+  grid-row: 3/16;
+  background-color: #ef5439;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 3fr;
+  grid-template-columns: 1fr 2fr;
+  border-radius: 20px;
+  grid-auto-flow: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+}
+
+.stats-container {
+  background-color: #f8C960;
+  grid-column: 2;
+  grid-row: 3/18;
+  border-radius: 20px;
+  display: grid;
+  grid-template-rows: 1fr 3fr 2fr 3fr 2fr;
+}
+
+.info-text {
+  padding-left: 2vw;
+}
+
+.detail-title {
+  text-align: left;
+  font-weight: lighter;
+  padding: 0 0 0 3vw;
+  display: grid;
+  grid-auto-flow: column;
+}
+
+
+.stats-details {
+  text-align: center;
+  padding: 1vw 3vw 1vw 3vw;
+}
+
+#profile-title {
+  font-size: 2em;
+}
+
+#stats-title {
+  font-size: 2em;
+
+}
+
+#featured {
+  grid-row: 3/4;
+
+}
+
+#credits {
+  grid-row: 5/6;
+}
+
+
+
+img{
+  padding: 35px;
+}
+
+p{
+   padding: 60px;
+}
+
+
