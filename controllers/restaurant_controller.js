@@ -24,7 +24,7 @@ var assembleRestaurant = function (req) {
         "phone": req.body.phone,
         "averageSustainabilityRating": 0,
         "typeOfRewards": req.body.typeOfRewards,
-        "photo":req.body.photos,
+        "photo":req.body.photo,
     };
 
     return restaurant;
