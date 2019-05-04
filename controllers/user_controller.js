@@ -9,7 +9,7 @@ var Reward = mongoose.model('rewards');
 // This includes the retrieval of rewards for users.
 
 // Helper function to be used in other functions.
-var assembleUser = function (req) {
+var createUserHelper = function (req) {
     var user = {
         "username":req.body.username,
         "password":req.body.password,
@@ -25,8 +25,24 @@ var assembleUser = function (req) {
     return user;
 };
 
+var assemlbleUser = function (req) {
+    var user = {
+        "username":req.body.username,
+        "password":req.body.password,
+        "email":req.body.email,
+        "fname":req.body.fname,
+        "lname":req.body.lname,
+        "rewardHistory":req.body.rewardHistory,
+        "savedRestaurants":req.body.savedRestaurants,
+        "points":req.body.points,
+        "photo":req.body.photo,
+    };
+
+    return user;
+};
+
 var createUser = function(req, res){
-    var newUser = new User(assembleUser(req));
+    var newUser = new User(createUserHelper(req));
 
     newUser.save(function (err, createdUser){
         if (!err){
@@ -41,9 +57,26 @@ var createUser = function(req, res){
 
 var editUser = function(req, res){
     var username = req.params.username;
-    var userUpdate = assembleUser(req);
+    var userUpdate = assemlbleUser(req);
+    console.log('edit user');
+    console.log(userUpdate);
 
-    User.updateOne({ username: username }, userUpdate, function(err, updatedUser) {
+    User.findOneAndUpdate({ username: username }, userUpdate, function(err, updatedUser) {
+        if (!err){
+
+            res.send(updatedUser);
+            console.log(updatedUser)
+        }
+        else {
+            res.send(err);
+        }
+    });
+};
+
+var editUserPoints = function (req, res) {
+    var username = req.params.username;
+
+    User.findOneAndUpdate({ username: username }, { points: req.body.points, rewardHistory: req.body.rewardHistory }, function(err, updatedUser) {
         if (!err){
             res.send(updatedUser);
         }
@@ -51,7 +84,20 @@ var editUser = function(req, res){
             res.send(err);
         }
     });
-};
+}
+
+var editUserSavedRestaurants = function (req, res) {
+    var username = req.params.username;
+
+    User.findOneAndUpdate({ username: username }, { savedRestaurants: req.body.savedRestaurants}, function(err, updatedUser) {
+        if (!err){
+            res.send(updatedUser);
+        }
+        else {
+            res.send(err);
+        }
+    });
+}
 
 var findAllUsers = function(req,res){
 
@@ -67,11 +113,11 @@ var findAllUsers = function(req,res){
 var searchUser = function(req, res){
     var username = req.params.username;
 
-    User.find({username:username},function(err,searchedUser){
+    User.findOne({username:username},function(err,searchedUser){
         if(!err){
             res.send(searchedUser);
-        }else{
-            res.sendStatus(404);
+        } else {
+            res.send(false);
         }
     });
 };
@@ -138,12 +184,14 @@ var getRewardsForUsers = function (req, res) {
     })
 };
 
-module.exports.createUser         = createUser;
-module.exports.editUser           = editUser;
-module.exports.findAllUsers       = findAllUsers;
-module.exports.searchUser         = searchUser;
-module.exports.deleteUser         = deleteUser;
-module.exports.validateUsername   = validateUsername;
-module.exports.validateUserEmail  = validateUserEmail;
-module.exports.loginUser          = loginUser;
-module.exports.getRewardsForUsers = getRewardsForUsers;
+module.exports.createUser               = createUser;
+module.exports.editUser                 = editUser;
+module.exports.editUserSavedRestaurants = editUserSavedRestaurants;
+module.exports.editUserPoints           = editUserPoints;
+module.exports.findAllUsers             = findAllUsers;
+module.exports.searchUser               = searchUser;
+module.exports.deleteUser               = deleteUser;
+module.exports.validateUsername         = validateUsername;
+module.exports.validateUserEmail        = validateUserEmail;
+module.exports.loginUser                = loginUser;
+module.exports.getRewardsForUsers       = getRewardsForUsers;

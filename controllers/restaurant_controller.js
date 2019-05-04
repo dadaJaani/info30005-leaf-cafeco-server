@@ -43,6 +43,50 @@ var createRestaurant = function(req,res){
     });
 };
 
+var createReview = function (req, res) {
+    var restaurantID = req.params.id
+
+    var newReview = {
+        "username": req.body.username,
+        "review": req.body.review,
+        "rating": req.body.rating,
+        "date": req.body.date,
+    }
+
+    console.log('restaurantID', restaurantID)
+
+
+    Restaurants.findOne({ id: restaurantID },function(err,searchedRestaurant) {
+        if(!err){
+            var updatedSustainabilityReviews = searchedRestaurant.sustainabilityReviews;
+            updatedSustainabilityReviews.push(newReview);
+
+            var totalSustainabilityRating = 0;
+            updatedSustainabilityReviews.forEach( review => totalSustainabilityRating += parseInt(review.rating))
+
+            var newSustainabilityRating = totalSustainabilityRating/updatedSustainabilityReviews.length
+
+
+            Restaurants.findOneAndUpdate({id: restaurantID}, { sustainabilityReviews: updatedSustainabilityReviews, averageSustainabilityRating: newSustainabilityRating}, function(err, updatedRestaurant){
+                if(!err){
+                    res.send(updatedRestaurant);
+                }else{
+                    // console.log(err);
+                    res.sendStatus(400);
+                }
+            });
+
+            // res.send(newReview);
+        }else{
+            // console.log(err);
+            res.sendStatus(400);
+        }
+    });
+
+
+
+};
+
 var editRestaurant = function(req,res){
     var restaurantId = req.params.id;
     var restaurantUpdate = assembleRestaurant(req);
@@ -132,6 +176,7 @@ module.exports.createRestaurant        = createRestaurant;
 module.exports.editRestaurant          = editRestaurant ;
 module.exports.findAllRestaurants      = findAllRestaurants;
 module.exports.searchRestaurant        = searchRestaurant;
+module.exports.createReview            = createReview;
 module.exports.deleteRestaurant        = deleteRestaurant;
 module.exports.validateRestaurantID    = validateRestaurantID;
 module.exports.validateRestaurantEmail = validateRestaurantEmail;

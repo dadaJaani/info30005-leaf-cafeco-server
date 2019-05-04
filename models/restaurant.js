@@ -3,9 +3,9 @@ var mongoose = require('mongoose');
 // Making Sub-schema
 var foodReviewSchema = mongoose.Schema(
     {
-            "username":{ type: String, trim: true },
-            "review":String,
-            "rating":Number
+        "username":{ type: String, trim: true },
+        "review":String,
+        "rating":Number
     }
 );
 
@@ -38,7 +38,14 @@ var restaurantSchema = mongoose.Schema(
         "about":String,
         "sustainabilityPractices":[String],
         "foodReviews":[foodReviewSchema],
-        "sustainabilityReviews":[sustainabilityReviewSchema],
+        "sustainabilityReviews":[
+            {
+                "username":{ type: String, trim: true },
+                "review":String,
+                "rating":Number,
+                "date":Date,
+            }
+        ],
         "averageFoodRating":Number,
         "location":mapLoc,
         "website":{ type: String, lowercase: true, trim: true },

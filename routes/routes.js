@@ -14,6 +14,8 @@ router.get('/', function (req, res) {
 // Routes for User functionality.
 router.post('/user', user_controller.createUser);
 router.put('/user/:username', user_controller.editUser);
+router.put('/user/:username/points', user_controller.editUserPoints);
+router.put('/user/:username/savedRestaurants', user_controller.editUserSavedRestaurants);
 router.get('/findAllUsers',user_controller.findAllUsers);
 router.get('/searchUser/:username',user_controller.searchUser);
 router.delete('/user/:username', user_controller.deleteUser);
@@ -24,6 +26,7 @@ router.get('/user/:username/rewards', user_controller.getRewardsForUsers);
 
 // Routes for Restaurant functionality.
 router.post('/restaurant',restaurant_controller.createRestaurant);
+router.put('/restaurant/:id/review',restaurant_controller.createReview);
 router.put('/restaurant/:id',restaurant_controller.editRestaurant);
 router.get('/findAllRestaurants',restaurant_controller.findAllRestaurants);
 router.get('/searchRestaurant/:id',restaurant_controller.searchRestaurant);
