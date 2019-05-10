@@ -76,6 +76,19 @@ var editUser = function(req, res){
 var editUserPoints = function (req, res) {
     var username = req.params.username;
 
+    User.findOneAndUpdate({ username: username }, { points: req.body.points }, function(err, updatedUser) {
+        if (!err){
+            res.send(updatedUser);
+        }
+        else {
+            res.send(err);
+        }
+    });
+}
+
+var editUserRewards = function (req, res) {
+    var username = req.params.username;
+
     User.findOneAndUpdate({ username: username }, { points: req.body.points, rewardHistory: req.body.rewardHistory }, function(err, updatedUser) {
         if (!err){
             res.send(updatedUser);
@@ -188,6 +201,7 @@ module.exports.createUser               = createUser;
 module.exports.editUser                 = editUser;
 module.exports.editUserSavedRestaurants = editUserSavedRestaurants;
 module.exports.editUserPoints           = editUserPoints;
+module.exports.editUserRewards          = editUserRewards;
 module.exports.findAllUsers             = findAllUsers;
 module.exports.searchUser               = searchUser;
 module.exports.deleteUser               = deleteUser;

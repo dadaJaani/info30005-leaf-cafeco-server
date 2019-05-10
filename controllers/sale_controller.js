@@ -48,6 +48,17 @@ var editSale = function(req,res){
     });
 };
 
+var validateSaleID = function (req,res) {
+    var id = req.params.id;
+
+    Sales.findOne({ id: id }, function(err, theSale){
+        if (theSale)
+            res.send(true);
+        else
+            res.send(false);
+    });
+}
+
 var findAllSales = function(req,res){
     Sales.find(function(err,allSales){
         if(!err){
@@ -58,30 +69,32 @@ var findAllSales = function(req,res){
     });
 };
 
-var searchSale = function(req, res){
+var getSale = function(req, res){
     var saleId = req.params.id;
-    Sales.find({id:saleId},function(err,searchedSale){
-        if(!err){
+
+    Sales.findOne({ id: saleId },function(err,searchedSale){
+        if(searchedSale){
             res.send(searchedSale);
-        }else{
-            res.sendStatus(404);
+        } else {
+            res.send(false);
         }
     });
 };
 
 var deleteSale = function(req, res){
     var saleId = req.params.id;
-    Sales.deleteOne({id:saleId},function(err){
+    Sales.deleteOne({id: saleId},function(err){
         if(!err){
             res.send(saleId);
         }else{
-            res.sendStatus(404);
+            res.send(false);
         }
     });
 };
 
 module.exports.createSale = createSale;
 module.exports.editSale = editSale;
+module.exports.validateSaleID = validateSaleID;
 module.exports.findAllSales = findAllSales;
-module.exports.searchSale = searchSale;
+module.exports.getSale = getSale;
 module.exports.deleteSale = deleteSale;

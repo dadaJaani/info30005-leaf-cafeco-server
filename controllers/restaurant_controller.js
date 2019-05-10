@@ -89,16 +89,14 @@ var createReview = function (req, res) {
 
 var editRestaurant = function(req,res){
     var restaurantId = req.params.id;
-    var restaurantUpdate = assembleRestaurant(req);
+    var restaurantUpdate = req.body.restaurantUpdate;
 
-    // console.log(restaurantId);
-
-    Restaurants.updateOne({id:restaurantId}, restaurantUpdate, function(err,updatedRestaurant){
+    Restaurants.findOneAndUpdate({id:restaurantId}, restaurantUpdate, function(err,updatedRestaurant){
         if(!err){
             res.send(updatedRestaurant);
         }else{
             // console.log(err);
-            res.sendStatus(400);
+            res.send(false);
         }
     });
 };

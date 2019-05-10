@@ -14,6 +14,7 @@ router.get('/', function (req, res) {
 // Routes for User functionality.
 router.post('/user', user_controller.createUser);
 router.put('/user/:username', user_controller.editUser);
+router.put('/user/:username/rewards', user_controller.editUserRewards);
 router.put('/user/:username/points', user_controller.editUserPoints);
 router.put('/user/:username/savedRestaurants', user_controller.editUserSavedRestaurants);
 router.get('/findAllUsers',user_controller.findAllUsers);
@@ -46,8 +47,9 @@ router.delete('/reward/:id',reward_controller.deleteReward);
 // Routes for Sale functionality.
 router.post('/sale',sale_controller.createSale);
 router.put('/sale/:id', sale_controller.editSale);
+router.get('/sale/validate/:id', sale_controller.validateSaleID);
 router.get('/findAllSales',sale_controller.findAllSales);
-router.get('/searchSale/:id',sale_controller.searchSale);
+router.get('/sale/:id',sale_controller.getSale);
 router.delete('/sale/:id',sale_controller.deleteSale);
 
 // Export every route as router to be used in app.js.
