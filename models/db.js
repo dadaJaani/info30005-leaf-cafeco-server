@@ -2,14 +2,10 @@
 const mongoose = require('mongoose');
 
 // Mongo Atlas account
-
-
 mongoose.set('useCreateIndex', true); // Silence deprecation warning.
 
-// TEST DATABASE
-// mongoose.connect('mongodb+srv://leaf:acdc1234@cafeco-fww6o.mongodb.net/test?retryWrites=true',{ useNewUrlParser: true },function(err){
-
-mongoose.connect('mongodb+srv://leaf:acdc1234@cafeco-fww6o.mongodb.net/cafeco?retryWrites=true',{ useNewUrlParser: true },function(err){
+const db_connect = process.env.MONGODB_URI || '';
+mongoose.connect(db_connect,{ useNewUrlParser: true },function(err){
     if(!err){
         console.log('Connected to database.');
     }else{
