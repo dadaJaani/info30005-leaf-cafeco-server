@@ -10,32 +10,34 @@ var Reward = mongoose.model('rewards');
 
 // Helper function to be used in other functions.
 var createUserHelper = function (req) {
-    var user = {
-        "username":req.body.username,
-        "password":req.body.password,
-        "email":req.body.email,
-        "fname":req.body.fname,
-        "lname":req.body.lname,
-        "rewardHistory":[],
-        "savedRestaurants":[],
-        "points":0,
-        "photo":'',
-    };
+    var user = assembleUser(req);
+
+    user.rewardHistory = [];
+    user.savedRestaurants = [];
+    user.points = 0;
+    user.photo = '';
 
     return user;
 };
 
-var assemlbleUser = function (req) {
+var editUserHelper = function (req) {
+    var user = assembleUser(req);
+
+    user.rewardHistory = req.body.rewardHistory;
+    user.savedRestaurants = req.body.savedRestaurants;
+    user.points = req.body.points;
+    user.photo = req.body.photo;
+
+    return user;
+};
+
+var assembleUser = function (req) {
     var user = {
         "username":req.body.username,
         "password":req.body.password,
         "email":req.body.email,
         "fname":req.body.fname,
         "lname":req.body.lname,
-        "rewardHistory":req.body.rewardHistory,
-        "savedRestaurants":req.body.savedRestaurants,
-        "points":req.body.points,
-        "photo":req.body.photo,
     };
 
     return user;
@@ -50,14 +52,14 @@ var createUser = function(req, res){
         }
         else {
             console.log(err)
-            res.send(false);
+            res.send(err);
         }
     });
 };
 
 var editUser = function(req, res){
     var username = req.params.username;
-    var userUpdate = assemlbleUser(req);
+    var userUpdate = editUserHelper(req);
     console.log('edit user');
     console.log(userUpdate);
 
