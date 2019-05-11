@@ -49,7 +49,7 @@ var assembleUser = function (req) {
 var obscureReturnData = function(User){
     User.password = "*****";
 
-    console.log("Obscured user:" + User);
+    // console.log("Obscured user:" + User);
 
     return User;
 };
@@ -69,16 +69,20 @@ var createUser = function(req, res){
 };
 
 var editUser = function(req, res){
-    var username = req.params.username;
-    var userUpdate = editUserHelper(req);
+    let username = req.params.username;
+    let userUpdate = editUserHelper(req);
     console.log('edit user');
     console.log(userUpdate);
 
-    User.findOneAndUpdate({ username: username }, userUpdate, function(err, updatedUser) {
-        if (!err){
-
-            res.send(updatedUser);
-            console.log(updatedUser)
+    User.findOneAndUpdate(
+        { username: username },
+        userUpdate,
+        {new: true},
+        (err, updatedUser) => {
+        if (!err && null != updatedUser){
+            console.log(updatedUser);
+            var obscuredUser = obscureReturnData(updatedUser);
+            res.send(obscuredUser);
         }
         else {
             res.send(err);
@@ -87,9 +91,9 @@ var editUser = function(req, res){
 };
 
 var changePassword = function (req, res) {
-    var username = req.body.username;
-    var password = req.body.password;
-    var newPassword = req.body.newPassword;
+    let username = req.body.username;
+    let password = req.body.password;
+    let newPassword = req.body.newPassword;
 
     User.findOneAndUpdate(
         { username: username, password: password },
@@ -98,8 +102,8 @@ var changePassword = function (req, res) {
         (err, updatedUser) => {
 
         if (!err && null != updatedUser){
-            console.log(updatedUser)
-            var obscuredUser = obscureReturnData(updatedUser);
+            console.log(updatedUser);
+            let obscuredUser = obscureReturnData(updatedUser);
             res.send(obscuredUser);
         }
         else {
@@ -110,11 +114,17 @@ var changePassword = function (req, res) {
 };
 
 var editUserPoints = function (req, res) {
-    var username = req.params.username;
+    let username = req.params.username;
 
-    User.findOneAndUpdate({ username: username }, { points: req.body.points }, function(err, updatedUser) {
-        if (!err){
-            res.send(updatedUser);
+    User.findOneAndUpdate(
+        { username: username },
+        { points: req.body.points },
+        {new: true},
+        (err, updatedUser) => {
+        if (!err && null != updatedUser){
+            console.log(updatedUser);
+            let obscuredUser = obscureReturnData(updatedUser);
+            res.send(obscuredUser);
         }
         else {
             res.send(err);
@@ -125,9 +135,15 @@ var editUserPoints = function (req, res) {
 var editUserRewards = function (req, res) {
     var username = req.params.username;
 
-    User.findOneAndUpdate({ username: username }, { points: req.body.points, rewardHistory: req.body.rewardHistory }, function(err, updatedUser) {
-        if (!err){
-            res.send(updatedUser);
+    User.findOneAndUpdate(
+        { username: username },
+        { points: req.body.points, rewardHistory: req.body.rewardHistory },
+        {new: true},
+        (err, updatedUser) => {
+        if (!err && null != updatedUser){
+            console.log(updatedUser);
+            let obscuredUser = obscureReturnData(updatedUser);
+            res.send(obscuredUser);
         }
         else {
             res.send(err);
@@ -136,11 +152,17 @@ var editUserRewards = function (req, res) {
 }
 
 var editUserSavedRestaurants = function (req, res) {
-    var username = req.params.username;
+    let username = req.params.username;
 
-    User.findOneAndUpdate({ username: username }, { savedRestaurants: req.body.savedRestaurants}, function(err, updatedUser) {
-        if (!err){
-            res.send(updatedUser);
+    User.findOneAndUpdate(
+        { username: username },
+        { savedRestaurants: req.body.savedRestaurants},
+        {new: true},
+        (err, updatedUser) => {
+        if (!err && null != updatedUser){
+            console.log(updatedUser);
+            let obscuredUser = obscureReturnData(updatedUser);
+            res.send(obscuredUser);
         }
         else {
             res.send(err);
@@ -186,7 +208,7 @@ var deleteUser = function(req, res){
 
 // Checks if the username exists.
 var validateUsername = function (req, res){
-    var username = req.params.username;
+    let username = req.params.username;
 
     User.findOne({ username: username }, function(err, theUser){
         if (theUser)
@@ -197,7 +219,7 @@ var validateUsername = function (req, res){
 };
 
 var validateUserEmail = function (req, res){
-    var email = req.params.email;
+    let email = req.params.email;
 
     User.findOne({ email: email }, function(err, theUser){
         if (theUser)
@@ -208,7 +230,7 @@ var validateUserEmail = function (req, res){
 };
 
 var loginUser = function (req, res){
-    var loginAttempt = {
+    let loginAttempt = {
         "username": req.body.username,
         "password": req.body.password,
     };
@@ -222,7 +244,7 @@ var loginUser = function (req, res){
 };
 
 var getRewardsForUsers = function (req, res) {
-    var username = req.params.username;
+    let username = req.params.username;
 
     Reward.find({ username: username}, function (err, rewards) {
         if (!err)
