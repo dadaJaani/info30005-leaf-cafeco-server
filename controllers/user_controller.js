@@ -12,6 +12,10 @@ var Reward = mongoose.model('rewards');
 var createUserHelper = function (req) {
     var user = assembleUser(req);
 
+    // Storing an empty password to be used as a token when password is first set.
+    // We dont want to complicate this too much.
+    // In general passwords will be sent from client to server only when logging in and setting password.
+    user.password = req.body.password;
     user.rewardHistory = [];
     user.savedRestaurants = [];
     user.points = 0;
@@ -34,13 +38,20 @@ var editUserHelper = function (req) {
 var assembleUser = function (req) {
     var user = {
         "username":req.body.username,
-        "password":req.body.password,
         "email":req.body.email,
         "fname":req.body.fname,
         "lname":req.body.lname,
     };
 
     return user;
+};
+
+var obscureReturnData = function(User){
+    User.password = "*****";
+
+    console.log("Obscured user:" + User);
+
+    return User;
 };
 
 var createUser = function(req, res){
@@ -70,6 +81,29 @@ var editUser = function(req, res){
             console.log(updatedUser)
         }
         else {
+            res.send(err);
+        }
+    });
+};
+
+var changePassword = function (req, res) {
+    var username = req.body.username;
+    var password = req.body.password;
+    var newPassword = req.body.newPassword;
+
+    User.findOneAndUpdate(
+        { username: username, password: password },
+        {$set: {password: newPassword}},
+        {new: true},
+        (err, updatedUser) => {
+
+        if (!err && null != updatedUser){
+            console.log(updatedUser)
+            var obscuredUser = obscureReturnData(updatedUser);
+            res.send(obscuredUser);
+        }
+        else {
+            console.log(err);
             res.send(err);
         }
     });
@@ -201,6 +235,7 @@ var getRewardsForUsers = function (req, res) {
 
 module.exports.createUser               = createUser;
 module.exports.editUser                 = editUser;
+module.exports.changePassword           = changePassword;
 module.exports.editUserSavedRestaurants = editUserSavedRestaurants;
 module.exports.editUserPoints           = editUserPoints;
 module.exports.editUserRewards          = editUserRewards;

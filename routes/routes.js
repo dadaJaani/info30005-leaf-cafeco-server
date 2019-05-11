@@ -14,6 +14,7 @@ router.get('/', function (req, res) {
 // Routes for User functionality.
 router.post('/user', user_controller.createUser);
 router.put('/user/:username', user_controller.editUser);
+router.put('/user/:username/password', user_controller.changePassword);
 router.put('/user/:username/rewards', user_controller.editUserRewards);
 router.put('/user/:username/points', user_controller.editUserPoints);
 router.put('/user/:username/savedRestaurants', user_controller.editUserSavedRestaurants);
