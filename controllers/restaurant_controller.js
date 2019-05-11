@@ -44,7 +44,7 @@ var createRestaurant = function(req,res){
 };
 
 var createReview = function (req, res) {
-    var restaurantID = req.params.id
+    var restaurantID = req.params.id;
 
     var newReview = {
         "username": req.body.username,
@@ -62,10 +62,8 @@ var createReview = function (req, res) {
             updatedSustainabilityReviews.push(newReview);
 
             var totalSustainabilityRating = 0;
-            updatedSustainabilityReviews.forEach( review => totalSustainabilityRating += parseInt(review.rating))
-
-            var newSustainabilityRating = totalSustainabilityRating/updatedSustainabilityReviews.length
-
+            updatedSustainabilityReviews.forEach( review => totalSustainabilityRating += parseInt(review.rating));
+            var newSustainabilityRating = totalSustainabilityRating/updatedSustainabilityReviews.length;
 
             Restaurants.findOneAndUpdate({id: restaurantID}, { sustainabilityReviews: updatedSustainabilityReviews, averageSustainabilityRating: newSustainabilityRating}, function(err, updatedRestaurant){
                 if(!err){

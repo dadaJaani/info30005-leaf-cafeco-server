@@ -38,14 +38,7 @@ var restaurantSchema = mongoose.Schema(
         "about":String,
         "sustainabilityPractices":[String],
         "foodReviews":[foodReviewSchema],
-        "sustainabilityReviews":[
-            {
-                "username":{ type: String, trim: true },
-                "review":String,
-                "rating":Number,
-                "date":Date,
-            }
-        ],
+        "sustainabilityReviews":[sustainabilityReviewSchema],
         "averageFoodRating":Number,
         "location":mapLoc,
         "website":{ type: String, lowercase: true, trim: true },
